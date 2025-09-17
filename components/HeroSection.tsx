@@ -1,17 +1,32 @@
-
 'use client'
 
 import { motion } from 'framer-motion'
 import { ArrowDown, Download, ExternalLink, Github, Linkedin } from 'lucide-react'
+import { 
+  SiPython, 
+  SiJavascript, 
+  SiReact, 
+  SiNodedotjs,
+  SiPostgresql,
+  SiDocker,
+  SiGit,  
+  SiPytorch,        
+  SiTensorflow   
+} from 'react-icons/si'
+import { FaJava } from 'react-icons/fa'
 import { useEffect, useState } from 'react'
 
 const HeroSection = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
+  const [isClient, setIsClient] = useState(false)
 
   useEffect(() => {
+    setIsClient(true)
+    
     const handleMouseMove = (e: MouseEvent) => {
       setMousePosition({ x: e.clientX, y: e.clientY })
     }
+    
     window.addEventListener('mousemove', handleMouseMove)
     return () => window.removeEventListener('mousemove', handleMouseMove)
   }, [])
@@ -23,43 +38,127 @@ const HeroSection = () => {
     }
   }
 
-  const particles = Array.from({ length: 20 }, (_, i) => (
-    <motion.div
-      key={i}
-      className="absolute w-1 h-1 bg-purple-400 rounded-full opacity-60"
-      initial={{
-        x: Math.random() * window.innerWidth,
-        y: Math.random() * window.innerHeight,
-      }}
-      animate={{
-        x: Math.random() * window.innerWidth,
-        y: Math.random() * window.innerHeight,
-      }}
-      transition={{
-        duration: Math.random() * 10 + 20,
-        repeat: Infinity,
-        ease: 'linear',
-      }}
-    />
-  ))
+  const techIcons = [
+    { 
+      icon: <SiPython size={40} />, 
+      delay: 0, 
+      radius: 120, 
+      color: 'text-yellow-400',
+      name: 'Python' 
+    },  
+    { 
+    icon: <SiPytorch size={40} />, 
+    delay: 1, 
+    radius: 140, 
+    color: 'text-orange-500',
+    name: 'PyTorch' 
+  },
+  { 
+    icon: <SiTensorflow size={40} />, 
+    delay: 2, 
+    radius: 100, 
+    color: 'text-orange-400',
+    name: 'TensorFlow' 
+  },
+    { 
+      icon: <FaJava size={40} />, 
+      delay: 2, 
+      radius: 140, 
+      color: 'text-red-500',
+      name: 'Java' 
+    },
+    { 
+      icon: <SiJavascript size={40} />, 
+      delay: 4, 
+      radius: 100, 
+      color: 'text-yellow-300',
+      name: 'JavaScript' 
+    },
+    { 
+      icon: <SiReact size={40} />, 
+      delay: 6, 
+      radius: 160, 
+      color: 'text-blue-400',
+      name: 'React' 
+    },
+    { 
+      icon: <SiPostgresql size={40} />, 
+      delay: 1, 
+      radius: 110, 
+      color: 'text-blue-600',
+      name: 'PostgreSQL' 
+    },
+    { 
+      icon: <SiNodedotjs size={40} />, 
+      delay: 3, 
+      radius: 130, 
+      color: 'text-green-500',
+      name: 'Node.js' 
+    },
+    { 
+      icon: <SiDocker size={40} />, 
+      delay: 5, 
+      radius: 150, 
+      color: 'text-blue-500',
+      name: 'Docker' 
+    },
+    { 
+      icon: <SiGit size={40} />, 
+      delay: 7, 
+      radius: 120, 
+      color: 'text-orange-500',
+      name: 'Git' 
+    },
+  ]
+
+  // Fixed particle positions to avoid hydration mismatch
+  const particlePositions = [
+    { x: 100, y: 200 }, { x: 300, y: 150 }, { x: 500, y: 300 }, { x: 700, y: 100 },
+    { x: 200, y: 400 }, { x: 600, y: 250 }, { x: 800, y: 350 }, { x: 150, y: 500 },
+    { x: 400, y: 50 }, { x: 750, y: 450 }, { x: 50, y: 300 }, { x: 900, y: 200 },
+    { x: 250, y: 100 }, { x: 550, y: 400 }, { x: 350, y: 250 }, { x: 650, y: 150 },
+    { x: 450, y: 350 }, { x: 150, y: 250 }, { x: 850, y: 300 }, { x: 300, y: 450 }
+  ]
 
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Animated Background Particles */}
-      <div className="absolute inset-0 overflow-hidden">
-        {typeof window !== 'undefined' && particles}
-      </div>
+      {/* Animated Background Particles - Only render on client */}
+      {isClient && (
+        <div className="absolute inset-0 overflow-hidden">
+          {particlePositions.map((pos, i) => (
+            <motion.div
+              key={i}
+              className="absolute w-1 h-1 bg-purple-400 rounded-full opacity-60"
+              initial={{ x: pos.x, y: pos.y }}
+              animate={{
+                x: pos.x + Math.sin(i) * 50,
+                y: pos.y + Math.cos(i) * 30,
+              }}
+              transition={{
+                duration: 10 + i,
+                repeat: Infinity,
+                repeatType: 'reverse',
+                ease: 'easeInOut',
+              }}
+            />
+          ))}
+        </div>
+      )}
 
-      {/* Interactive Gradient Orb */}
-      <motion.div
-        className="absolute w-96 h-96 rounded-full opacity-20 blur-3xl"
-        style={{
-          background: 'linear-gradient(45deg, #a855f7, #14b8a6)',
-          x: mousePosition.x - 192,
-          y: mousePosition.y - 192,
-        }}
-        transition={{ type: 'spring', damping: 30, stiffness: 200 }}
-      />
+      {/* Interactive Gradient Orb - Only render on client */}
+      {isClient && (
+        <motion.div
+          className="absolute w-96 h-96 rounded-full opacity-20 blur-3xl"
+          style={{
+            background: 'linear-gradient(45deg, #a855f7, #14b8a6)',
+          }}
+          animate={{
+            x: mousePosition.x - 192,
+            y: mousePosition.y - 192,
+          }}
+          transition={{ type: 'spring', damping: 30, stiffness: 200 }}
+        />
+      )}
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -93,7 +192,7 @@ const HeroSection = () => {
               <span className="text-gradient">Software Engineer</span>
               <br />
               {/* <span className="text-2xl md:text-3xl lg:text-4xl text-slate-300 font-normal">
-                & AI-ML Specialist
+                & AI-ML Enthusiast
               </span> */}
             </motion.h1>
 
@@ -116,7 +215,7 @@ const HeroSection = () => {
               className="flex flex-col sm:flex-row gap-4 mb-8"
             >
               <motion.a
-                href="/Achal_Jain_Resume.pdf"
+                href="https://drive.google.com/file/d/1xYXd7csDZgvruOsvOJugacSX63snB5j_/view?usp=sharing"
                 download
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -125,7 +224,7 @@ const HeroSection = () => {
                 <Download size={20} />
                 <span>Download Resume</span>
               </motion.a>
-
+              
               <motion.button
                 onClick={scrollToProjects}
                 whileHover={{ scale: 1.05 }}
@@ -168,7 +267,7 @@ const HeroSection = () => {
             </motion.div>
           </motion.div>
 
-          {/* Animated Visual */}
+          {/* Animated Visual with Tech Icons */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
@@ -184,34 +283,50 @@ const HeroSection = () => {
               <div className="absolute inset-0 rounded-full bg-gradient-to-r from-purple-500/20 to-teal-500/20 blur-xl"></div>
               <div className="absolute inset-4 rounded-full bg-gradient-to-r from-purple-600/40 to-teal-600/40 blur-lg"></div>
               <div className="absolute inset-8 rounded-full bg-gradient-to-r from-purple-700/60 to-teal-700/60"></div>
-
-              {/* Floating Icons */}
-              {[
-                { icon: '🐍', delay: 0, radius: 120, color: 'text-yellow-400' },
-                { icon: '⚛️', delay: 2, radius: 140, color: 'text-blue-400' },
-                { icon: '🤖', delay: 4, radius: 100, color: 'text-green-400' },
-                { icon: '🚀', delay: 6, radius: 160, color: 'text-red-400' },
-              ].map((item, index) => (
+              
+              {/* Floating Tech Icons - FIXED: Removed boxes and improved animation */}
+              {techIcons.map((item, index) => (
                 <motion.div
-                  key={index}
-                  className={`absolute text-3xl ${item.color}`}
+                  key={item.name}
+                  className={`absolute ${item.color} drop-shadow-lg`}
                   animate={{
-                    rotate: 360,
-                    x: Math.cos(index * Math.PI / 2) * item.radius,
-                    y: Math.sin(index * Math.PI / 2) * item.radius,
+                    rotate: [0, 360],
+                    x: Math.cos((index * Math.PI * 2) / techIcons.length) * item.radius,
+                    y: Math.sin((index * Math.PI * 2) / techIcons.length) * item.radius,
                   }}
                   transition={{
-                    duration: 15,
-                    repeat: Infinity,
-                    ease: 'linear',
-                    delay: item.delay,
+                    rotate: {
+                      duration: 20,
+                      repeat: Infinity,
+                      ease: 'linear',
+                    },
+                    x: {
+                      duration: 6,
+                      repeat: Infinity,
+                      repeatType: 'reverse',
+                      ease: 'easeInOut',
+                    },
+                    y: {
+                      duration: 6,
+                      repeat: Infinity,
+                      repeatType: 'reverse',
+                      ease: 'easeInOut',
+                    },
                   }}
                   style={{
                     left: '50%',
                     top: '50%',
                     transform: 'translate(-50%, -50%)',
                   }}
+                  title={item.name}
+                  whileHover={{ 
+                    scale: 1.3, 
+                    rotate: 15,
+                    filter: 'brightness(1.2)',
+                    transition: { duration: 0.2 }
+                  }}
                 >
+                  {/* REMOVED: The box/background container */}
                   {item.icon}
                 </motion.div>
               ))}

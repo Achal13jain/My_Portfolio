@@ -92,7 +92,7 @@ const Navigation = () => {
                 <Linkedin size={20} />
               </motion.a>
               <motion.a
-                href="/Achal_Jain_Resume.pdf"
+                href="https://drive.google.com/file/d/1xYXd7csDZgvruOsvOJugacSX63snB5j_/view?usp=sharing"
                 download
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -159,7 +159,7 @@ const Navigation = () => {
                   <Linkedin size={24} />
                 </motion.a>
                 <motion.a
-                  href="/Achal_Jain_Resume.pdf"
+                  href="https://drive.google.com/file/d/1xYXd7csDZgvruOsvOJugacSX63snB5j_/view?usp=sharing"
                   download
                   whileHover={{ scale: 1.05 }}
                   className="btn-primary px-4 py-2 rounded-full text-sm font-medium flex items-center space-x-2"

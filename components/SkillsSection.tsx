@@ -9,39 +9,39 @@ const SkillsSection = () => {
     {
       title: 'Languages',
       icon: <Code2 size={32} />,
-      skills: ['Python', 'Java', 'JavaScript', 'TypeScript'],
+      skills: ['Python', 'Java', 'JavaScript'],
       color: 'from-purple-500 to-purple-700',
     },
     {
       title: 'Frontend',
       icon: <Smartphone size={32} />,
-      skills: ['React', 'Next.js', 'Tailwind CSS', 'HTML5/CSS3'],
+      skills: ['React', 'CSS', 'HTML5'],
       color: 'from-teal-500 to-teal-700',
     },
     {
       title: 'Backend',
       icon: <Server size={32} />,
-      skills: ['FastAPI', 'Node.js', 'REST APIs', 'Microservices'],
+      skills: ['FastAPI', 'REST APIs', 'Microservices'],
       color: 'from-purple-600 to-teal-600',
     },
     {
       title: 'AI/ML',
       icon: <Brain size={32} />,
-      skills: ['PyTorch', 'TensorFlow', 'Scikit-learn', 'Pandas'],
+      skills: ['PyTorch', 'Scikit-learn', 'Pandas'],
       color: 'from-teal-600 to-purple-600',
     },
     {
       title: 'Database',
       icon: <Database size={32} />,
-      skills: ['PostgreSQL', 'MongoDB', 'Redis', 'SQL'],
+      skills: ['PostgreSQL', 'MySQL'],
       color: 'from-purple-700 to-teal-500',
     },
-    {
-      title: 'DevOps',
-      icon: <GitBranch size={32} />,
-      skills: ['GitHub', 'Docker', 'AWS', 'CI/CD'],
-      color: 'from-teal-700 to-purple-500',
-    },
+    // {
+    //   title: 'DevOps',
+    //   icon: <GitBranch size={32} />,
+    //   skills: ['GitHub', 'Docker', 'AWS', 'CI/CD'],
+    //   color: 'from-teal-700 to-purple-500',
+    // },
   ]
 
   const containerVariants = {
@@ -177,7 +177,7 @@ const SkillsSection = () => {
             className="inline-flex items-center space-x-2 text-purple-300 font-medium"
           >
             <div className="w-2 h-2 bg-teal-400 rounded-full animate-pulse"></div>
-            <span>Currently exploring: Next.js 15, AI Agents, and Cloud Architecture</span>
+            <span>Currently exploring: Generative AI, AI Agents, and Cloud Architecture</span>
           </motion.div>
         </motion.div>
       </div>

@@ -6,16 +6,17 @@ import { Calendar, MapPin, Building, Award, TrendingUp, Users } from 'lucide-rea
 
 const ExperienceSection = () => {
   const experience = {
-    company: 'Nucleusteq',
+    company: 'NucleusTeq Consulting Pvt. Ltd.',
     position: 'Software Development Intern',
-    duration: 'Feb 2025- July 2025',
+    duration: 'Feb 2025- Jul 2025',
     location: 'Indore, India',
     description: 'Developed and optimized backend systems for enterprise applications, contributing to microservices architecture and implementing REST APIs with comprehensive testing suites.',
     achievements: [
-      'Built scalable REST APIs serving 10,000+ daily requests',
+      'Developed full-stack applications using React, Java, Python, and FastAPI',
+      'Built scalable REST APIs ',
       'Optimized database queries improving response time by 40%',
       'Collaborated with cross-functional teams on agile development',
-      'Implemented automated testing reducing bugs by 25%',
+
     ],
     skills: ['Python','Java', 'FastAPI', 'PostgreSQL', 'Git', 'Agile'],
   }
@@ -24,7 +25,7 @@ const ExperienceSection = () => {
     degree: 'B.Tech Computer Science',
     specialization: 'AI-ML Specialization',
     university: 'Medicaps University',
-    duration: '2021 - 2025',
+    duration: 'Aug 2021 - Aug 2025',
     location: 'Indore, India',
     highlights: [
       'Specialized coursework in Machine Learning and AI',
