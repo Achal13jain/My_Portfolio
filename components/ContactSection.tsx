@@ -21,17 +21,43 @@ const ContactSection = () => {
     })
   }
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsSubmitting(true)
+  // const handleSubmit = async (e: React.FormEvent) => {
+  //   e.preventDefault()
+  //   setIsSubmitting(true)
 
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false)
+  //   // Simulate form submission
+  //   setTimeout(() => {
+  //     setIsSubmitting(false)
+  //     setFormData({ name: '', email: '', subject: '', message: '' })
+  //     alert('Message sent successfully! I\'ll get back to you soon.')
+  //   }, 2000)
+  // }
+const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault()
+  setIsSubmitting(true)
+  
+  // Use Formspree or Netlify Forms for contact functionality
+  try {
+    const response = await fetch('https://formspree.io/f/YOUR_FORM_ID', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData),
+    })
+    
+    if (response.ok) {
       setFormData({ name: '', email: '', subject: '', message: '' })
       alert('Message sent successfully! I\'ll get back to you soon.')
-    }, 2000)
+    } else {
+      alert('Failed to send message. Please try again.')
+    }
+  } catch (error) {
+    alert('Error sending message. Please try again.')
+  } finally {
+    setIsSubmitting(false)
   }
+}
 
   const contactInfo = [
     {
@@ -211,7 +237,7 @@ const ContactSection = () => {
           viewport={{ once: true }}
           className="text-center mt-20 pt-8 border-t border-slate-700/50"
         >
-          <p className="text-slate-400 mb-4">Built with Next.js, Tailwind CSS, and Framer Motion</p>
+          {/* <p className="text-slate-400 mb-4">Built with Next.js, Tailwind CSS, and Framer Motion</p> */}
           <p className="text-slate-500 text-sm">© 2025 Achal Jain. All rights reserved.</p>
         </motion.div>
       </div>

@@ -20,12 +20,12 @@ const spaceGrotesk = Space_Grotesk({
 })
 
 export const metadata: Metadata = {
-  title: 'Achal Jain - Software Engineer & AI-ML Specialist',
+  title: 'Achal Jain - Software Engineer & AI-ML Enthusiast',
   description: 'Portfolio of Achal Jain - B.Tech Computer Science graduate specializing in AI-ML, building production-ready backend systems and ML applications.',
   keywords: 'Achal Jain, Software Engineer, AI ML, Machine Learning, Backend Developer, Computer Science, Portfolio',
   authors: [{ name: 'Achal Jain' }],
   openGraph: {
-    title: 'Achal Jain - Software Engineer & AI-ML Specialist',
+    title: 'Achal Jain - Software Engineer & AI-ML Enthusiast',
     description: 'Building production-ready backend systems and ML apps',
     url: 'https://achaljain.dev',
     siteName: 'Achal Jain Portfolio',
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Achal Jain - Software Engineer & AI-ML Specialist',
+    title: 'Achal Jain - Software Engineer & AI-ML Enthusiast',
     description: 'Building production-ready backend systems and ML apps',
   },
   robots: {

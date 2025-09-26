@@ -27,7 +27,7 @@ const SkillsSection = () => {
     {
       title: 'AI/ML',
       icon: <Brain size={32} />,
-      skills: ['PyTorch', 'Scikit-learn', 'Pandas'],
+      skills: ['Numpy', 'Pandas','Scikit-learn','PyTorch'],
       color: 'from-teal-600 to-purple-600',
     },
     {
@@ -36,12 +36,12 @@ const SkillsSection = () => {
       skills: ['PostgreSQL', 'MySQL'],
       color: 'from-purple-700 to-teal-500',
     },
-    // {
-    //   title: 'DevOps',
-    //   icon: <GitBranch size={32} />,
-    //   skills: ['GitHub', 'Docker', 'AWS', 'CI/CD'],
-    //   color: 'from-teal-700 to-purple-500',
-    // },
+    {
+      title: 'DevOps',
+      icon: <GitBranch size={32} />,
+      skills: ['GitHub', 'Docker', 'CI/CD'],
+      color: 'from-teal-700 to-purple-500',
+    },
   ]
 
   const containerVariants = {
