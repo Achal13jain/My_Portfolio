@@ -182,18 +182,25 @@ const HeroSection = () => {
 
             {/* Main Title */}
             <motion.h1
-              initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
-              className="text-4xl md:text-6xl lg:text-7xl font-space-grotesk font-bold leading-tight mb-6"
+              className="mb-6 leading-tight font-space-grotesk"
             >
-              <span className="text-white">Achal Jain</span>
-              <br />
-              <span className="text-gradient">Software Engineer</span>
-              <br />
-              {/* <span className="text-2xl md:text-3xl lg:text-4xl text-slate-300 font-normal">
-                & AI-ML Enthusiast
-              </span> */}
+              {/* Intro */}
+              <span className="block text-base md:text-lg lg:text-xl text-slate-400 tracking-wide">
+                Hi, I'm
+              </span>
+
+              {/* Name: largest */}
+              <span className="block text-5xl md:text-7xl lg:text-8xl font-bold text-white">
+                Achal Jain
+              </span>
+
+              {/* Role: strong but smaller than name */}
+              <span className="mt-2 block text-2xl md:text-3xl lg:text-4xl font-semibold text-gradient">
+              Software Engineer &<br/>AI/ML Enthusiast
+              </span>
             </motion.h1>
 
             {/* Tagline */}
@@ -201,12 +208,11 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
-              className="text-lg md:text-xl text-slate-400 mb-8 leading-relaxed max-w-lg"
+              className="text-lg md:text-xl text-slate-400 mb-8 leading-relaxed max-w-xl"
             >
-              Building production-ready backend systems and ML apps with cutting-edge technologies. 
-              Turning complex problems into elegant solutions.
+              I specialize in designing scalable backend systems and developing intelligent ML solutions. Passionate about leveraging technology to solve real-world problems and deliver impactful results.
             </motion.p>
-
+            
             {/* CTA Buttons */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
