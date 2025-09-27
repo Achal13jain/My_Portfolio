@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Achal Jain - Software Engineer & AI-ML Enthusiast',
     description: 'Building production-ready backend systems and ML apps',
-    url: 'https://achaljain.dev',
+    url: 'https://achal-jain-portfolio.netlify.app/',
     siteName: 'Achal Jain Portfolio',
     type: 'website',
   },
@@ -50,7 +50,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <head>
-        <link rel="icon" href="/favicon.ico" />
+        {/* <link rel="icon" href="/favicon.ico" /> */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
       </head>
