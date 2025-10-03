@@ -158,7 +158,7 @@ const ProjectsSection = () => {
                     >
                       <Github size={18} />
                     </motion.a>
-                    {/* <motion.a
+                    <motion.a
                       href={project.liveLink}
                       target="_blank"
                       rel="noopener noreferrer"
@@ -167,7 +167,7 @@ const ProjectsSection = () => {
                       className="p-2 rounded-lg bg-black/60 hover:bg-black/80 text-white transition-colors backdrop-blur-sm"
                     >
                       <ExternalLink size={18} />
-                    </motion.a> */}
+                    </motion.a>
                   </div>
                 </div>
 
