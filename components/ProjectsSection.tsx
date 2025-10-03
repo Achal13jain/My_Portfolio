@@ -56,7 +56,7 @@ const ProjectsSection = () => {
       border: 'border-teal-500/30',
       glow: 'shadow-teal-500/20',
       githubLink: 'https://github.com/Achal13jain/Splitwise_app',
-      //liveLink: 'https://splitwise-app.netlify.app',
+      liveLink: 'https://msplitwise.netlify.app/',
     },
   ]
 
