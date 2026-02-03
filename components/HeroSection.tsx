@@ -2,16 +2,17 @@
 
 import { motion } from 'framer-motion'
 import { ArrowDown, Download, ExternalLink, Github, Linkedin } from 'lucide-react'
-import { 
-  SiPython, 
-  SiJavascript, 
-  SiReact, 
+import { techIcons } from '@/data/portfolio-data'
+import {
+  SiPython,
+  SiJavascript,
+  SiReact,
   SiNodedotjs,
   SiPostgresql,
   SiDocker,
-  SiGit,  
-  SiPytorch,        
-  SiTensorflow   
+  SiGit,
+  SiPytorch,
+  SiTensorflow
 } from 'react-icons/si'
 import { FaJava } from 'react-icons/fa'
 import { useEffect, useState } from 'react'
@@ -22,11 +23,11 @@ const HeroSection = () => {
 
   useEffect(() => {
     setIsClient(true)
-    
+
     const handleMouseMove = (e: MouseEvent) => {
       setMousePosition({ x: e.clientX, y: e.clientY })
     }
-    
+
     window.addEventListener('mousemove', handleMouseMove)
     return () => window.removeEventListener('mousemove', handleMouseMove)
   }, [])
@@ -38,78 +39,7 @@ const HeroSection = () => {
     }
   }
 
-  const techIcons = [
-    { 
-      icon: <SiPython size={40} />, 
-      delay: 0, 
-      radius: 120, 
-      color: 'text-yellow-400',
-      name: 'Python' 
-    },  
-    { 
-    icon: <SiPytorch size={40} />, 
-    delay: 1, 
-    radius: 140, 
-    color: 'text-orange-500',
-    name: 'PyTorch' 
-  },
-  { 
-    icon: <SiTensorflow size={40} />, 
-    delay: 2, 
-    radius: 100, 
-    color: 'text-orange-400',
-    name: 'TensorFlow' 
-  },
-    { 
-      icon: <FaJava size={40} />, 
-      delay: 2, 
-      radius: 140, 
-      color: 'text-red-500',
-      name: 'Java' 
-    },
-    { 
-      icon: <SiJavascript size={40} />, 
-      delay: 4, 
-      radius: 100, 
-      color: 'text-yellow-300',
-      name: 'JavaScript' 
-    },
-    { 
-      icon: <SiReact size={40} />, 
-      delay: 6, 
-      radius: 160, 
-      color: 'text-blue-400',
-      name: 'React' 
-    },
-    { 
-      icon: <SiPostgresql size={40} />, 
-      delay: 1, 
-      radius: 110, 
-      color: 'text-blue-600',
-      name: 'PostgreSQL' 
-    },
-    { 
-      icon: <SiNodedotjs size={40} />, 
-      delay: 3, 
-      radius: 130, 
-      color: 'text-green-500',
-      name: 'Node.js' 
-    },
-    { 
-      icon: <SiDocker size={40} />, 
-      delay: 5, 
-      radius: 150, 
-      color: 'text-blue-500',
-      name: 'Docker' 
-    },
-    { 
-      icon: <SiGit size={40} />, 
-      delay: 7, 
-      radius: 120, 
-      color: 'text-orange-500',
-      name: 'Git' 
-    },
-  ]
+
 
   // Fixed particle positions to avoid hydration mismatch
   const particlePositions = [
@@ -182,7 +112,7 @@ const HeroSection = () => {
 
             {/* Main Title */}
             <motion.h1
-            initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
               className="mb-6 leading-tight font-space-grotesk"
@@ -199,7 +129,7 @@ const HeroSection = () => {
 
               {/* Role: strong but smaller than name */}
               <span className="mt-2 block text-2xl md:text-3xl lg:text-4xl font-semibold text-gradient">
-              Software Engineer &<br/>AI/ML Enthusiast
+                Software Engineer &<br />AI/ML Enthusiast
               </span>
             </motion.h1>
 
@@ -212,7 +142,7 @@ const HeroSection = () => {
             >
               I specialize in designing scalable backend systems and developing intelligent ML solutions. Passionate about leveraging technology to solve real-world problems and deliver impactful results.
             </motion.p>
-            
+
             {/* CTA Buttons */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -230,7 +160,7 @@ const HeroSection = () => {
                 <Download size={20} />
                 <span>Download Resume</span>
               </motion.a>
-              
+
               <motion.button
                 onClick={scrollToProjects}
                 whileHover={{ scale: 1.05 }}
@@ -289,7 +219,7 @@ const HeroSection = () => {
               <div className="absolute inset-0 rounded-full bg-gradient-to-r from-purple-500/20 to-teal-500/20 blur-xl"></div>
               <div className="absolute inset-4 rounded-full bg-gradient-to-r from-purple-600/40 to-teal-600/40 blur-lg"></div>
               <div className="absolute inset-8 rounded-full bg-gradient-to-r from-purple-700/60 to-teal-700/60"></div>
-              
+
               {/* Floating Tech Icons - FIXED: Removed boxes and improved animation */}
               {techIcons.map((item, index) => (
                 <motion.div
@@ -325,15 +255,15 @@ const HeroSection = () => {
                     transform: 'translate(-50%, -50%)',
                   }}
                   title={item.name}
-                  whileHover={{ 
-                    scale: 1.3, 
+                  whileHover={{
+                    scale: 1.3,
                     rotate: 15,
                     filter: 'brightness(1.2)',
                     transition: { duration: 0.2 }
                   }}
                 >
                   {/* REMOVED: The box/background container */}
-                  {item.icon}
+                  {<item.icon size={40} />}
                 </motion.div>
               ))}
             </motion.div>

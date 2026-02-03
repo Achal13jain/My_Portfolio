@@ -1,6 +1,7 @@
 {
   "name": "achal-jain-portfolio",
   "version": "0.1.0",
+  "description": "Modern developer portfolio built with Next.js, TypeScript, and Tailwind CSS. Features dark mode, animations, and clean architecture.",
   "private": true,
   "scripts": {
     "dev": "next dev",

@@ -4,36 +4,10 @@
 import { motion } from 'framer-motion'
 import { Calendar, MapPin, Building, Award, TrendingUp, Users } from 'lucide-react'
 
+import { experience, education } from '@/data/portfolio-data'
+
 const ExperienceSection = () => {
-  const experience = {
-    company: 'NucleusTeq Consulting Pvt. Ltd.',
-    position: 'Software Development Intern',
-    duration: 'Feb 2025- Jul 2025',
-    location: 'Indore, India',
-    description: 'Developed and optimized backend systems for enterprise applications, contributing to microservices architecture and implementing REST APIs with comprehensive testing suites.',
-    achievements: [
-      'Developed full-stack applications using React, Java, Python, and FastAPI',
-      'Built scalable REST APIs ',
-      'Optimized database queries improving response time by 40%',
-      'Collaborated with cross-functional teams on agile development',
-
-    ],
-    skills: ['Python','Java', 'FastAPI', 'PostgreSQL', 'Git', 'Agile'],
-  }
-
-  const education = {
-    degree: 'B.Tech Computer Science',
-    specialization: 'AI-ML Specialization',
-    university: 'Medicaps University',
-    duration: 'Aug 2021 - Aug 2025',
-    location: 'Indore, India',
-    highlights: [
-      'Specialized coursework in Machine Learning and AI',
-      'Strong foundation in Data Structures and Algorithms',
-      'Hands-on experience with modern software development',
-      'Active participation in coding competitions and hackathons',
-    ],
-  }
+  // experience and education data moved to @/data/portfolio-data
 
   return (
     <section id="experience" className="py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">

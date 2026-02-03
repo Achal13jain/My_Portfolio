@@ -2,8 +2,10 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Mail, Phone, MapPin, Send, Github, Linkedin, ExternalLink } from 'lucide-react'
+import { Send } from 'lucide-react'
 import { useState } from 'react'
+
+import { contactInfo, socialLinks } from '@/data/portfolio-data'
 
 const ContactSection = () => {
   const [formData, setFormData] = useState({
@@ -32,71 +34,34 @@ const ContactSection = () => {
   //     alert('Message sent successfully! I\'ll get back to you soon.')
   //   }, 2000)
   // }
-const handleSubmit = async (e: React.FormEvent) => {
-  e.preventDefault()
-  setIsSubmitting(true)
-  
-  // Use Formspree or Netlify Forms for contact functionality
-  try {
-    const response = await fetch('https://formspree.io/f/mrbybveo', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(formData),
-    })
-    
-    if (response.ok) {
-      setFormData({ name: '', email: '', subject: '', message: '' })
-      alert('Message sent successfully! I\'ll get back to you soon.')
-    } else {
-      alert('Failed to send message. Please try again.')
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setIsSubmitting(true)
+
+    // Use Formspree or Netlify Forms for contact functionality
+    try {
+      const response = await fetch('https://formspree.io/f/mrbybveo', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      })
+
+      if (response.ok) {
+        setFormData({ name: '', email: '', subject: '', message: '' })
+        alert('Message sent successfully! I\'ll get back to you soon.')
+      } else {
+        alert('Failed to send message. Please try again.')
+      }
+    } catch (error) {
+      alert('Error sending message. Please try again.')
+    } finally {
+      setIsSubmitting(false)
     }
-  } catch (error) {
-    alert('Error sending message. Please try again.')
-  } finally {
-    setIsSubmitting(false)
   }
-}
 
-  const contactInfo = [
-    {
-      icon: <Mail size={24} />,
-      label: 'Email',
-      value: 'jainachal38@gmail.com',
-      href: 'mailto:jainachal38@gmail.com',
-      color: 'from-purple-500 to-purple-700',
-    },
-    {
-      icon: <Phone size={24} />,
-      label: 'Phone',
-      value: '+91 94069 18980',
-      href: 'tel:+919406918980',
-      color: 'from-teal-500 to-teal-700',
-    },
-    {
-      icon: <MapPin size={24} />,
-      label: 'Location',
-      value: 'Indore, India',
-      href: 'https://share.google/O5txBSd5LvUY74nbd',
-      color: 'from-purple-600 to-teal-600',
-    },
-  ]
 
-  const socialLinks = [
-    {
-      name: 'GitHub',
-      icon: <Github size={24} />,
-      href: 'https://github.com/Achal13jain',
-      color: 'hover:text-purple-400',
-    },
-    {
-      name: 'LinkedIn',
-      icon: <Linkedin size={24} />,
-      href: 'https://linkedin.com/in/achal-jain13',
-      color: 'hover:text-teal-400',
-    },
-  ]
 
   return (
     <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden bg-gradient-to-b from-navy-950 to-navy-900">
@@ -137,7 +102,7 @@ const handleSubmit = async (e: React.FormEvent) => {
                   className="flex items-center space-x-4 p-4 glass rounded-xl border border-slate-700/50 hover:border-purple-500/30 transition-all duration-300 group"
                 >
                   <div className={`flex items-center justify-center w-12 h-12 rounded-lg bg-gradient-to-br ${item.color} text-white`}>
-                    {item.icon}
+                    {<item.icon size={24} />}
                   </div>
                   <div>
                     <p className="text-sm text-slate-400 font-medium">{item.label}</p>
@@ -159,7 +124,7 @@ const handleSubmit = async (e: React.FormEvent) => {
                     whileHover={{ scale: 1.2 }}
                     className={`text-slate-400 ${social.color} transition-colors p-3 rounded-lg hover:bg-slate-800/50`}
                   >
-                    {social.icon}
+                    {<social.icon size={24} />}
                   </motion.a>
                 ))}
               </div>
