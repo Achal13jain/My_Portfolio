@@ -2,47 +2,12 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Code2, Database, Brain, GitBranch, Server, Smartphone } from 'lucide-react'
+// import { Code2, Database, Brain, GitBranch, Server, Smartphone } from 'lucide-react'
+
+import { skillCategories } from '@/data/portfolio-data'
 
 const SkillsSection = () => {
-  const skillCategories = [
-    {
-      title: 'Languages',
-      icon: <Code2 size={32} />,
-      skills: ['Python', 'Java', 'JavaScript'],
-      color: 'from-purple-500 to-purple-700',
-    },
-    {
-      title: 'Frontend',
-      icon: <Smartphone size={32} />,
-      skills: ['React', 'CSS', 'HTML5'],
-      color: 'from-teal-500 to-teal-700',
-    },
-    {
-      title: 'Backend',
-      icon: <Server size={32} />,
-      skills: ['FastAPI', 'REST APIs', 'Microservices'],
-      color: 'from-purple-600 to-teal-600',
-    },
-    {
-      title: 'AI/ML',
-      icon: <Brain size={32} />,
-      skills: ['Numpy', 'Pandas','Scikit-learn','PyTorch'],
-      color: 'from-teal-600 to-purple-600',
-    },
-    {
-      title: 'Database',
-      icon: <Database size={32} />,
-      skills: ['PostgreSQL', 'MySQL'],
-      color: 'from-purple-700 to-teal-500',
-    },
-    {
-      title: 'DevOps',
-      icon: <GitBranch size={32} />,
-      skills: ['GitHub', 'Docker', 'CI/CD'],
-      color: 'from-teal-700 to-purple-500',
-    },
-  ]
+  // skillCategories moved to @/data/portfolio-data
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -107,8 +72,8 @@ const SkillsSection = () => {
             <motion.div
               key={category.title}
               variants={itemVariants}
-              whileHover={{ 
-                scale: 1.05, 
+              whileHover={{
+                scale: 1.05,
                 rotateY: 5,
                 transition: { type: 'spring', stiffness: 300 }
               }}
@@ -123,7 +88,7 @@ const SkillsSection = () => {
                 <div className="relative z-10">
                   {/* Icon */}
                   <div className={`inline-flex items-center justify-center w-16 h-16 rounded-xl bg-gradient-to-br ${category.color} text-white mb-4 group-hover:scale-110 transition-transform duration-300`}>
-                    {category.icon}
+                    {<category.icon size={32} />}
                   </div>
 
                   {/* Title */}

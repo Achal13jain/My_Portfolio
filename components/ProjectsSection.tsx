@@ -1,64 +1,13 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { ExternalLink, Github, Brain, ShoppingCart, Activity, Calculator } from 'lucide-react'
+import { ExternalLink, Github } from 'lucide-react'
 import Image from 'next/image'
 
+import { projects } from '@/data/portfolio-data'
+
 const ProjectsSection = () => {
-  const projects = [
-    {
-      title: 'AI Resume Matcher',
-      description: 'Intelligent resume screening system using NLP and machine learning to match candidates with job requirements. Built with Python, FastAPI, and transformer models.',
-      icon: <Brain size={32} />,
-      image: '/images/ai-resume-matcher.jpg',
-      color: 'from-purple-500 to-purple-700',
-      tech: ['Python', 'FastAPI', 'NLP', 'Streamlit'],
-      gradient: 'bg-gradient-to-br from-purple-900/20 to-purple-700/20',
-      border: 'border-purple-500/30',
-      glow: 'shadow-purple-500/20',
-      githubLink: 'https://github.com/Achal13jain/AI_resume_matcher',
-      //liveLink: 'https://ai-resume-matcher.vercel.app',
-    },
-    {
-      title: 'E-commerce Backend',
-      description: 'Scalable microservices architecture for e-commerce platform with user management, shopping cart, checkout, and order history functionalities with JWT-based secure endpoints.',
-      icon: <ShoppingCart size={32} />,
-      image: '/images/ecommerce-backend.jpg',
-      color: 'from-teal-500 to-teal-700',
-      tech: ['Python', 'PostgreSQL', 'FastAPI', 'JWT'],
-      gradient: 'bg-gradient-to-br from-teal-900/20 to-teal-700/20',
-      border: 'border-teal-500/30',
-      glow: 'shadow-teal-500/20',
-      githubLink: 'https://github.com/Achal13jain/Ecommerce_backend',
-      //liveLink: 'https://ecommerce-api.herokuapp.com',
-    },
-    {
-      title: 'Disease Prediction System',
-      description: 'ML-powered healthcare application for early disease detection using symptom analysis. Implemented ensemble learning with 92% accuracy on validation data.',
-      icon: <Activity size={32} />,
-      image: '/images/disease-prediction.jpg',
-      color: 'from-purple-600 to-teal-600',
-      tech: ['Python', 'Scikit-learn', 'Pandas', 'Streamlit', 'Machine Learning'],
-      gradient: 'bg-gradient-to-br from-purple-800/20 to-teal-800/20',
-      border: 'border-gradient-to-r from-purple-500/30 to-teal-500/30',
-      glow: 'shadow-purple-500/10',
-      githubLink: 'https://github.com/Achal13jain/Disease-prediction-system',
-      //liveLink: 'https://disease-predictor.streamlit.app',
-    },
-    {
-      title: 'Splitwise Web App',
-      description: 'Expense sharing application with real-time calculations, group management, and settlement optimization. Clean UI with responsive design.',
-      icon: <Calculator size={32} />,
-      image: '/images/splitwise-clone.jpg',
-      color: 'from-teal-600 to-purple-600',
-      tech: ['Java', 'Springboot', 'PostgreSQL', 'JavaScript'],
-      gradient: 'bg-gradient-to-br from-teal-800/20 to-purple-800/20',
-      border: 'border-teal-500/30',
-      glow: 'shadow-teal-500/20',
-      githubLink: 'https://github.com/Achal13jain/Splitwise_app',
-      liveLink: 'https://msplitwise.netlify.app/',
-    },
-  ]
+  // projects data moved to @/data/portfolio-data
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -123,7 +72,7 @@ const ProjectsSection = () => {
             <motion.div
               key={project.title}
               variants={cardVariants}
-              whileHover={{ 
+              whileHover={{
                 y: -10,
                 scale: 1.02,
                 transition: { type: 'spring', stiffness: 300 }
@@ -132,7 +81,7 @@ const ProjectsSection = () => {
             >
               {/* Card Container */}
               <div className={`glass rounded-2xl overflow-hidden h-full border ${project.border} hover:border-opacity-50 transition-all duration-500 relative ${project.gradient}`}>
-                
+
                 {/* Project Image */}
                 <div className="relative h-48 overflow-hidden">
                   <Image
@@ -145,7 +94,7 @@ const ProjectsSection = () => {
                   />
                   {/* Image Overlay */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-                  
+
                   {/* Action Buttons on Image Hover */}
                   <div className="absolute top-4 right-4 flex items-center space-x-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <motion.a
@@ -176,7 +125,7 @@ const ProjectsSection = () => {
                   {/* Icon & Title */}
                   <div className="flex items-start justify-between mb-4">
                     <div className={`inline-flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br ${project.color} text-white group-hover:scale-110 transition-transform duration-300`}>
-                      {project.icon}
+                      {<project.icon size={32} />}
                     </div>
                   </div>
 
