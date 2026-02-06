@@ -65,6 +65,54 @@ export interface TechIcon {
   name: string
 }
 
+export interface Certification {
+  title: string
+  issuer: string
+  date?: string
+  logo: string
+}
+
+export const certifications: Certification[] = [
+  {
+    title: 'Oracle Cloud Infrastructure 2025 Certified Generative AI Professional',
+    issuer: 'Oracle',
+    date: '2025',
+    logo: 'https://upload.wikimedia.org/wikipedia/commons/5/50/Oracle_logo.svg'
+  },
+  {
+    title: 'Oracle Cloud Infrastructure 2025 Certified Data Science Professional',
+    issuer: 'Oracle',
+    date: '2025',
+    logo: 'https://upload.wikimedia.org/wikipedia/commons/5/50/Oracle_logo.svg'
+  },
+  {
+    title: 'AWS Academy Graduate - Machine Learning Foundations',
+    issuer: 'Amazon Web Services',
+    date: '2023',
+    logo: 'https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg'
+  },
+  {
+    title: 'Databricks Get Started Days: Data Engineering & SQL',
+    issuer: 'Databricks',
+    logo: 'https://cdn.simpleicons.org/databricks/FF3621'
+  },
+  {
+    title: 'PCAP - Programming Essentials in Python',
+    issuer: 'Python Institute',
+    logo: 'https://cdn.simpleicons.org/python/3776AB'
+  },
+  {
+    title: 'McKinsey Forward Program',
+    issuer: 'McKinsey & Company',
+    logo: '/images/mckinsey-forward.png'
+  },
+  {
+    title: 'Introduction to Cybersecurity',
+    issuer: 'Cisco',
+    logo: 'https://cdn.simpleicons.org/cisco/1BA0D7'
+  }
+]
+
 export const projects: Project[] = [
   {
     title: 'AI Resume Matcher',
