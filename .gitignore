@@ -43,8 +43,8 @@ Thumbs.db
 
 # Personal Files
 public/Achal_Jain_Resume.pdf
-public/images/mckinsey-forward.png
 public/images/*.jpg
 public/images/*.png
+!public/images/mckinsey-forward.png
 app/icon.png
 app/apple-touch-icon.png
