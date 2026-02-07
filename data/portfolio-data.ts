@@ -70,6 +70,7 @@ export interface Certification {
   issuer: string
   date?: string
   logo: string
+  link?: string
 }
 
 export const certifications: Certification[] = [
@@ -77,39 +78,46 @@ export const certifications: Certification[] = [
     title: 'Oracle Cloud Infrastructure 2025 Certified Generative AI Professional',
     issuer: 'Oracle',
     date: '2025',
-    logo: 'https://upload.wikimedia.org/wikipedia/commons/5/50/Oracle_logo.svg'
+    logo: 'https://upload.wikimedia.org/wikipedia/commons/5/50/Oracle_logo.svg',
+    link: 'https://drive.google.com/file/d/1ygDykaoaEX42EPzy2DY5RwLvc8Q8bVnF/view?usp=sharing'
   },
   {
     title: 'Oracle Cloud Infrastructure 2025 Certified Data Science Professional',
     issuer: 'Oracle',
     date: '2025',
-    logo: 'https://upload.wikimedia.org/wikipedia/commons/5/50/Oracle_logo.svg'
+    logo: 'https://upload.wikimedia.org/wikipedia/commons/5/50/Oracle_logo.svg',
+    link: 'https://drive.google.com/file/d/1GUn7DQuy1X9puG53oCadzs0nOPbA0MO-/view?usp=sharing'
   },
   {
     title: 'AWS Academy Graduate - Machine Learning Foundations',
     issuer: 'Amazon Web Services',
     date: '2023',
-    logo: 'https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg'
+    logo: 'https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg',
+    link: 'https://drive.google.com/file/d/1XeYst0TvfO5JlVqKBlWBVSP-yiKwmNI8/view?usp=sharing'
   },
   {
     title: 'Databricks Get Started Days: Data Engineering & SQL',
     issuer: 'Databricks',
-    logo: 'https://cdn.simpleicons.org/databricks/FF3621'
+    logo: 'https://cdn.simpleicons.org/databricks/FF3621',
+    link: 'https://drive.google.com/file/d/1mMsr9qJIqEZ8pNItv08GP8OhlL1u0XLl/view?usp=sharing'
   },
   {
     title: 'PCAP - Programming Essentials in Python',
     issuer: 'Python Institute',
-    logo: 'https://cdn.simpleicons.org/python/3776AB'
+    logo: 'https://cdn.simpleicons.org/python/3776AB',
+    link: 'https://drive.google.com/file/d/1LrpeBPjjYhYNLs1HzOS2s4qojlKpbIdi/view?usp=sharing'
   },
   {
     title: 'McKinsey Forward Program',
     issuer: 'McKinsey & Company',
-    logo: '/images/mckinsey-forward.png'
+    logo: '/images/mckinsey-forward.png',
+    link: 'https://drive.google.com/file/d/1FNHOcWghM72kSoCPi_HHy7jDPDYsDvzo/view?usp=sharing'
   },
   {
     title: 'Introduction to Cybersecurity',
     issuer: 'Cisco',
-    logo: 'https://cdn.simpleicons.org/cisco/1BA0D7'
+    logo: 'https://cdn.simpleicons.org/cisco/1BA0D7',
+    link: 'https://drive.google.com/file/d/1SbNtpkIvPRxwHPWovcK-ztuOC5m0fidh/view?usp=sharing'
   }
 ]
 
