@@ -24,9 +24,12 @@ const CertificationsSection = () => {
                 >
                     <span className="text-purple-400 font-medium tracking-wider uppercase text-sm">Credentials</span>
                     <h2 className="text-3xl md:text-4xl font-bold text-white mt-2 mb-4">
-                        Certifications & <span className="text-gradient">Awards</span>
+                        Major <span className="text-gradient">Certifications</span>
                     </h2>
-                    <div className="w-20 h-1 bg-gradient-to-r from-purple-500 to-teal-500 mx-auto rounded-full"></div>
+                    <p className="text-slate-400 mt-4 max-w-2xl mx-auto text-base">
+                        Here are some of the key certifications and awards I have earned, highlighting my expertise in Cloud, AI, and Software Development.
+                    </p>
+                    <div className="w-20 h-1 bg-gradient-to-r from-purple-500 to-teal-500 mx-auto rounded-full mt-6"></div>
                 </motion.div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
