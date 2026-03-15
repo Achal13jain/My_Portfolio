@@ -1,7 +1,7 @@
-
 import type { Metadata } from 'next'
 import { Inter, Poppins, Space_Grotesk } from 'next/font/google'
 import './globals.css'
+import ScrollProgress from '@/components/ScrollProgress'
 
 const inter = Inter({ 
   subsets: ['latin'],
@@ -40,6 +40,10 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+  icons: {
+    icon: '/favicon.ico',
+    apple: '/apple-touch-icon.png',
+  },
 }
 
 export default function RootLayout({
@@ -50,11 +54,12 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <head>
-        {/* <link rel="icon" href="/favicon.ico" /> */}
+        <link rel="icon" href="/favicon.ico" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
       </head>
       <body className={`${inter.variable} ${poppins.variable} ${spaceGrotesk.variable} font-inter antialiased bg-navy-950 text-slate-100 overflow-x-hidden`}>
+        <ScrollProgress />
         <div className="relative min-h-screen">
           {/* Background Gradient Mesh */}
           <div className="fixed inset-0 -z-10">

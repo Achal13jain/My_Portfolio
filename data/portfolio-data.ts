@@ -5,7 +5,7 @@ import { FaJava } from 'react-icons/fa'
 export interface Project {
   title: string
   description: string
-  icon: any
+  icon: React.ElementType
   image: string
   color: string
   tech: string[]
@@ -18,7 +18,7 @@ export interface Project {
 
 export interface SkillCategory {
   title: string
-  icon: any
+  icon: React.ElementType
   skills: string[]
   color: string
 }
@@ -43,7 +43,7 @@ export interface Education {
 }
 
 export interface ContactInfo {
-  icon: any
+  icon: React.ElementType
   label: string
   value: string
   href: string
@@ -52,13 +52,13 @@ export interface ContactInfo {
 
 export interface SocialLink {
   name: string
-  icon: any
+  icon: React.ElementType
   href: string
   color: string
 }
 
 export interface TechIcon {
-  icon: any
+  icon: React.ElementType
   delay: number
   radius: number
   color: string

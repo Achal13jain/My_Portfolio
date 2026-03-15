@@ -121,6 +121,7 @@ const ContactSection = () => {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label={social.name}
                     whileHover={{ scale: 1.2 }}
                     className={`text-slate-400 ${social.color} transition-colors p-3 rounded-lg hover:bg-slate-800/50`}
                   >

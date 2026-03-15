@@ -1,13 +1,13 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { motion, useMotionTemplate, useMotionValue } from 'framer-motion'
 import { ExternalLink, Github } from 'lucide-react'
 import Image from 'next/image'
+import { MouseEvent } from 'react'
 
 import { projects } from '@/data/portfolio-data'
 
 const ProjectsSection = () => {
-  // projects data moved to @/data/portfolio-data
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -68,19 +68,48 @@ const ProjectsSection = () => {
           viewport={{ once: true }}
           className="grid grid-cols-1 lg:grid-cols-2 gap-8"
         >
-          {projects.map((project, index) => (
-            <motion.div
-              key={project.title}
-              variants={cardVariants}
-              whileHover={{
-                y: -10,
-                scale: 1.02,
-                transition: { type: 'spring', stiffness: 300 }
-              }}
-              className="group relative project-card"
-            >
-              {/* Card Container */}
-              <div className={`glass rounded-2xl overflow-hidden h-full border ${project.border} hover:border-opacity-50 transition-all duration-500 relative ${project.gradient}`}>
+          {projects.map((project, index) => {
+            const mouseX = useMotionValue(0)
+            const mouseY = useMotionValue(0)
+
+            function handleMouseMove({
+              currentTarget,
+              clientX,
+              clientY,
+            }: MouseEvent) {
+              const { left, top } = currentTarget.getBoundingClientRect()
+              mouseX.set(clientX - left)
+              mouseY.set(clientY - top)
+            }
+
+            return (
+              <motion.div
+                key={project.title}
+                variants={cardVariants}
+                onMouseMove={handleMouseMove}
+                whileHover={{
+                  y: -10,
+                  scale: 1.02,
+                  transition: { type: 'spring', stiffness: 300 }
+                }}
+                className="group relative project-card"
+              >
+                {/* Spotlight Overlay */}
+                <motion.div
+                  className="pointer-events-none absolute -inset-px rounded-2xl opacity-0 transition duration-300 group-hover:opacity-100 z-20"
+                  style={{
+                    background: useMotionTemplate`
+                      radial-gradient(
+                        600px circle at ${mouseX}px ${mouseY}px,
+                        rgba(168, 85, 247, 0.15),
+                        transparent 80%
+                      )
+                    `,
+                  }}
+                />
+
+                {/* Card Container */}
+                <div className={`glass rounded-2xl overflow-hidden h-full border ${project.border} hover:border-opacity-50 transition-all duration-500 relative ${project.gradient}`}>
 
                 {/* Project Image */}
                 <div className="relative h-48 overflow-hidden">
@@ -89,6 +118,7 @@ const ProjectsSection = () => {
                     alt={project.title}
                     width={400}
                     height={200}
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                     style={{ objectPosition: 'center top' }}
                   />
@@ -101,6 +131,7 @@ const ProjectsSection = () => {
                       href={project.githubLink}
                       target="_blank"
                       rel="noopener noreferrer"
+                      aria-label="View Project Code on GitHub"
                       whileHover={{ scale: 1.1, rotate: 5 }}
                       whileTap={{ scale: 0.9 }}
                       className="p-2 rounded-lg bg-black/60 hover:bg-black/80 text-white transition-colors backdrop-blur-sm"
@@ -111,6 +142,7 @@ const ProjectsSection = () => {
                       href={project.liveLink}
                       target="_blank"
                       rel="noopener noreferrer"
+                      aria-label="View Live Project"
                       whileHover={{ scale: 1.1, rotate: -5 }}
                       whileTap={{ scale: 0.9 }}
                       className="p-2 rounded-lg bg-black/60 hover:bg-black/80 text-white transition-colors backdrop-blur-sm"
@@ -144,7 +176,6 @@ const ProjectsSection = () => {
                         key={tech}
                         initial={{ opacity: 0, scale: 0.8 }}
                         whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: true }}
                         transition={{ delay: techIndex * 0.1 }}
                         className="px-2 py-1 text-xs font-medium bg-slate-800/80 text-slate-300 rounded-full border border-slate-600/50 group-hover:bg-slate-700/80 group-hover:text-slate-200 group-hover:border-purple-500/30 transition-all duration-300"
                       >
@@ -158,7 +189,7 @@ const ProjectsSection = () => {
                 <div className={`absolute -inset-0.5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 ${project.glow} shadow-2xl -z-10`}></div>
               </div>
             </motion.div>
-          ))}
+          )})}
         </motion.div>
 
         {/* GitHub CTA */}

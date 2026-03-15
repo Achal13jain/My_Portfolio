@@ -75,6 +75,7 @@ const Navigation = () => {
                 href="https://github.com/Achal13jain"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="GitHub Profile"
                 whileHover={{ scale: 1.1, rotate: 5 }}
                 whileTap={{ scale: 0.9 }}
                 className="text-slate-400 hover:text-purple-400 transition-colors"
@@ -85,6 +86,7 @@ const Navigation = () => {
                 href="https://linkedin.com/in/achal-jain13"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="LinkedIn Profile"
                 whileHover={{ scale: 1.1, rotate: -5 }}
                 whileTap={{ scale: 0.9 }}
                 className="text-slate-400 hover:text-teal-400 transition-colors"
@@ -108,6 +110,7 @@ const Navigation = () => {
           <motion.button
             whileTap={{ scale: 0.9 }}
             onClick={() => setIsOpen(!isOpen)}
+            aria-label={isOpen ? 'Close menu' : 'Open menu'}
             className="md:hidden text-slate-300 hover:text-purple-400 transition-colors"
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
@@ -144,6 +147,7 @@ const Navigation = () => {
                   href="https://github.com/Achal13jain"
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label="GitHub Profile"
                   whileHover={{ scale: 1.1 }}
                   className="text-slate-400 hover:text-purple-400 transition-colors"
                 >
@@ -153,6 +157,7 @@ const Navigation = () => {
                   href="https://linkedin.com/in/achal-jain13"
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label="LinkedIn Profile"
                   whileHover={{ scale: 1.1 }}
                   className="text-slate-400 hover:text-teal-400 transition-colors"
                 >

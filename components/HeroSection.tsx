@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import { ArrowDown, Download, ExternalLink, Github, Linkedin } from 'lucide-react'
 import { techIcons } from '@/data/portfolio-data'
+import TypewriterText from './TypewriterText'
 import {
   SiPython,
   SiJavascript,
@@ -128,8 +129,15 @@ const HeroSection = () => {
               </span>
 
               {/* Role: strong but smaller than name */}
-              <span className="mt-2 block text-2xl md:text-3xl lg:text-4xl font-semibold text-gradient">
-                Software Engineer &<br />AI/ML Enthusiast
+              <span className="mt-2 block text-2xl md:text-3xl lg:text-4xl font-semibold text-gradient h-[40px] md:h-[48px]">
+                <TypewriterText 
+                  texts={[
+                    "Software Engineer",
+                    "AI/ML Enthusiast",
+                    "Full-Stack Developer",
+                    "Problem Solver"
+                  ]}
+                />
               </span>
             </motion.h1>
 
@@ -184,6 +192,7 @@ const HeroSection = () => {
                 href="https://github.com/Achal13jain"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="GitHub Profile"
                 whileHover={{ scale: 1.2, rotate: 5 }}
                 whileTap={{ scale: 0.9 }}
                 className="text-slate-400 hover:text-purple-400 transition-colors"
@@ -194,6 +203,7 @@ const HeroSection = () => {
                 href="https://linkedin.com/in/achal-jain13"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="LinkedIn Profile"
                 whileHover={{ scale: 1.2, rotate: -5 }}
                 whileTap={{ scale: 0.9 }}
                 className="text-slate-400 hover:text-teal-400 transition-colors"

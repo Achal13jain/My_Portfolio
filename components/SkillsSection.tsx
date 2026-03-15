@@ -1,7 +1,8 @@
 
 'use client'
 
-import { motion } from 'framer-motion'
+import { motion, useMotionTemplate, useMotionValue } from 'framer-motion'
+import { MouseEvent } from 'react'
 // import { Code2, Database, Brain, GitBranch, Server, Smartphone } from 'lucide-react'
 
 import { skillCategories } from '@/data/portfolio-data'
@@ -68,19 +69,48 @@ const SkillsSection = () => {
           viewport={{ once: true }}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
         >
-          {skillCategories.map((category, index) => (
-            <motion.div
-              key={category.title}
-              variants={itemVariants}
-              whileHover={{
-                scale: 1.05,
-                rotateY: 5,
-                transition: { type: 'spring', stiffness: 300 }
-              }}
-              className="group relative"
-            >
-              {/* Card */}
-              <div className="glass rounded-2xl p-6 h-full border border-slate-700/50 hover:border-purple-500/30 transition-all duration-300 relative overflow-hidden">
+          {skillCategories.map((category, index) => {
+            const mouseX = useMotionValue(0)
+            const mouseY = useMotionValue(0)
+
+            function handleMouseMove({
+              currentTarget,
+              clientX,
+              clientY,
+            }: MouseEvent) {
+              const { left, top } = currentTarget.getBoundingClientRect()
+              mouseX.set(clientX - left)
+              mouseY.set(clientY - top)
+            }
+
+            return (
+              <motion.div
+                key={category.title}
+                variants={itemVariants}
+                onMouseMove={handleMouseMove}
+                whileHover={{
+                  scale: 1.05,
+                  rotateY: 5,
+                  transition: { type: 'spring', stiffness: 300 }
+                }}
+                className="group relative"
+              >
+                {/* Spotlight Overlay */}
+                <motion.div
+                  className="pointer-events-none absolute -inset-px rounded-2xl opacity-0 transition duration-300 group-hover:opacity-100 z-20"
+                  style={{
+                    background: useMotionTemplate`
+                      radial-gradient(
+                        400px circle at ${mouseX}px ${mouseY}px,
+                        rgba(20, 184, 166, 0.15),
+                        transparent 80%
+                      )
+                    `,
+                  }}
+                />
+
+                {/* Card */}
+                <div className="glass rounded-2xl p-6 h-full border border-slate-700/50 hover:border-purple-500/30 transition-all duration-300 relative overflow-hidden">
                 {/* Gradient Background */}
                 <div className={`absolute inset-0 bg-gradient-to-br ${category.color} opacity-5 group-hover:opacity-10 transition-opacity duration-300`}></div>
 
@@ -123,7 +153,7 @@ const SkillsSection = () => {
                 </div>
               </div>
             </motion.div>
-          ))}
+          )})}
         </motion.div>
 
         {/* Bottom CTA */}
@@ -142,7 +172,7 @@ const SkillsSection = () => {
             className="inline-flex items-center space-x-2 text-purple-300 font-medium"
           >
             <div className="w-2 h-2 bg-teal-400 rounded-full animate-pulse"></div>
-            <span>Currently exploring: Generative AI, AI Agents, and Cloud Architecture</span>
+            <span>Currently exploring: Generative AI, System Design and Cloud Architecture</span>
           </motion.div>
         </motion.div>
       </div>
