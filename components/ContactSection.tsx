@@ -40,7 +40,7 @@ const ContactSection = () => {
 
     // Use Formspree or Netlify Forms for contact functionality
     try {
-      const response = await fetch('https://formspree.io/f/mrbybveo', {
+      const response = await fetch(`https://formspree.io/f/${process.env.NEXT_PUBLIC_FORMSPREE_ID}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
