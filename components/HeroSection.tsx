@@ -159,7 +159,7 @@ const HeroSection = () => {
               className="flex flex-col sm:flex-row gap-4 mb-8"
             >
               <motion.a
-                href="https://drive.google.com/file/d/1M29aZBhNiZvyULT9gNSKiK2OeW7aswON/view?usp=sharing"
+                href="https://drive.google.com/file/d/1gUvVi0MWZhyl3koPBNx1nBtP7qVqANFI/view?usp=sharing"
                 download
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
