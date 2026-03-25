@@ -204,7 +204,7 @@ const ContactSection = () => {
           className="text-center mt-20 pt-8 border-t border-slate-700/50"
         >
           {/* <p className="text-slate-400 mb-4">Built with Next.js, Tailwind CSS, and Framer Motion</p> */}
-          <p className="text-slate-500 text-sm">© 2025 Achal Jain. All rights reserved.</p>
+          <p className="text-slate-500 text-sm">© 2026 Achal Jain. All rights reserved.</p>
         </motion.div>
       </div>
     </section>
