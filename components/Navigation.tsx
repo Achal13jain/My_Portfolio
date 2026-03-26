@@ -22,6 +22,7 @@ const Navigation = () => {
     { name: 'Skills', href: '#skills' },
     { name: 'Certifications', href: '#certifications' },
     { name: 'Projects', href: '#projects' },
+    { name: 'Blogs', href: '#blogs' },
     { name: 'Experience', href: '#experience' },
     { name: 'Contact', href: '#contact' },
   ]
@@ -94,7 +95,7 @@ const Navigation = () => {
                 <Linkedin size={20} />
               </motion.a>
               <motion.a
-                href="https://drive.google.com/file/d/1M29aZBhNiZvyULT9gNSKiK2OeW7aswON/view?usp=sharing"
+                href="https://drive.google.com/file/d/1gUvVi0MWZhyl3koPBNx1nBtP7qVqANFI/view?usp=sharing"
                 download
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -164,7 +165,7 @@ const Navigation = () => {
                   <Linkedin size={24} />
                 </motion.a>
                 <motion.a
-                  href="https://drive.google.com/file/d/1M29aZBhNiZvyULT9gNSKiK2OeW7aswON/view?usp=sharing"
+                  href="https://drive.google.com/file/d/1gUvVi0MWZhyl3koPBNx1nBtP7qVqANFI/view?usp=sharing"
                   download
                   whileHover={{ scale: 1.05 }}
                   className="btn-primary px-4 py-2 rounded-full text-sm font-medium flex items-center space-x-2"

@@ -73,6 +73,70 @@ export interface Certification {
   link?: string
 }
 
+export interface BlogPost {
+  title: string
+  description: string
+  url: string
+  platform: 'medium' | 'hashnode'
+  image: string
+  category: string
+  date: string
+  readTime: string
+  featured: boolean
+  tags: string[]
+}
+
+export const blogs: BlogPost[] = [
+  {
+    title: 'Context Engineering Is a Skill. Most Developers Are Skipping It.',
+    description: "Your AI coding agent isn't underperforming because the model is weak — it's underperforming because you haven't built the environment it needs. Skills, CLAUDE.md, hooks, and the patterns that close the gap.",
+    url: 'https://medium.com/towards-artificial-intelligence/context-engineering-is-a-skill-most-developers-are-skipping-it-9938678292b8',
+    platform: 'medium',
+    image: 'https://res.cloudinary.com/du0ea6cth/image/upload/v1774462517/achal-portfolio/Context%20eng%20blog.png',
+    category: 'DEVELOPER TOOLS',
+    date: 'March 2026',
+    readTime: '6 min read',
+    featured: true,
+    tags: ['Claude Code', 'Cursor', 'AI Tooling', 'Context Engineering']
+  },
+  {
+    title: "Why Your Laptop Isn't Enough: What 'Cloud' Actually Means for ML",
+    description: 'Understanding the limitations of local hardware and how cloud infrastructure empowers scalable Machine Learning models.',
+    url: 'https://achal-jain.hashnode.dev/why-your-laptop-isn-t-enough-what-cloud-actually-means-for-ml',
+    platform: 'hashnode',
+    image: 'https://res.cloudinary.com/du0ea6cth/image/upload/v1774462521/achal-portfolio/blog_cover_part1.png',
+    category: 'CLOUD / ML',
+    date: 'March 2026',
+    readTime: '4 min read',
+    featured: false,
+    tags: ['Cloud', 'Machine Learning', 'Infrastructure']
+  },
+  {
+    title: 'Free Cloud Platforms for ML: Colab, Kaggle, Hugging Face',
+    description: 'A comprehensive guide to leveraging free cloud resources for Machine Learning model training and experimentation.',
+    url: 'https://achal-jain.hashnode.dev/free-cloud-platforms-for-ml-colab-kaggle-hugging-face-what-nobody-tells-you',
+    platform: 'hashnode',
+    image: 'https://res.cloudinary.com/du0ea6cth/image/upload/v1774462528/achal-portfolio/Blog%20part%202%20cover%20image%20hashnode.png',
+    category: 'CLOUD / ML',
+    date: 'March 2026',
+    readTime: '5 min read',
+    featured: false,
+    tags: ['Kaggle', 'Google Colab', 'Hugging Face']
+  },
+  {
+    title: 'I Deployed a Stock Prediction Model on AWS: Here\'s Exactly How',
+    description: 'A complete step-by-step walkthrough of building and deploying a machine learning model on Amazon Web Services (AWS).',
+    url: 'https://achal-jain.hashnode.dev/i-deployed-a-stock-prediction-model-on-aws-here-s-exactly-how',
+    platform: 'hashnode',
+    image: 'https://res.cloudinary.com/du0ea6cth/image/upload/v1774462544/achal-portfolio/Blog%20part%203%20cover%20image.png',
+    category: 'CLOUD / ML',
+    date: 'March 2026',
+    readTime: '8 min read',
+    featured: false,
+    tags: ['AWS', 'Deployment', 'Stock Prediction']
+  }
+]
+
 export const certifications: Certification[] = [
   {
     title: 'Oracle Cloud Infrastructure 2025 Certified Generative AI Professional',
@@ -110,7 +174,7 @@ export const certifications: Certification[] = [
   {
     title: 'McKinsey Forward Program',
     issuer: 'McKinsey & Company',
-    logo: '/images/mckinsey-forward.png',
+    logo: 'https://res.cloudinary.com/du0ea6cth/image/upload/v1774462555/achal-portfolio/mckinsey-forward.png',
     link: 'https://drive.google.com/file/d/1FNHOcWghM72kSoCPi_HHy7jDPDYsDvzo/view?usp=sharing'
   },
   {
@@ -126,7 +190,7 @@ export const projects: Project[] = [
     title: 'AI Resume Matcher',
     description: 'Intelligent resume screening system using NLP and machine learning to match candidates with job requirements. Built with Python, FastAPI, and transformer models.',
     icon: Brain,
-    image: '/images/ai-resume-matcher.jpg',
+    image: 'https://res.cloudinary.com/du0ea6cth/image/upload/v1774462548/achal-portfolio/ai-resume-matcher.jpg',
     color: 'from-purple-500 to-purple-700',
     tech: ['Python', 'FastAPI', 'NLP', 'Streamlit'],
     gradient: 'bg-gradient-to-br from-purple-900/20 to-purple-700/20',
@@ -139,7 +203,7 @@ export const projects: Project[] = [
     title: 'E-commerce Backend',
     description: 'Scalable microservices architecture for e-commerce platform with user management, shopping cart, checkout, and order history functionalities with JWT-based secure endpoints.',
     icon: ShoppingCart,
-    image: '/images/ecommerce-backend.jpg',
+    image: 'https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?q=80&w=1000&auto=format&fit=crop',
     color: 'from-teal-500 to-teal-700',
     tech: ['Python', 'PostgreSQL', 'FastAPI', 'JWT'],
     gradient: 'bg-gradient-to-br from-teal-900/20 to-teal-700/20',
@@ -149,23 +213,23 @@ export const projects: Project[] = [
     //liveLink: 'https://ecommerce-api.herokuapp.com',
   },
   {
-    title: 'Disease Prediction System',
-    description: 'ML-powered healthcare application for early disease detection using symptom analysis. Implemented ensemble learning with 92% accuracy on validation data.',
+    title: 'Fyers MCX Data Extractor',
+    description: 'Production-grade tool to download historical MCX futures data directly from Fyers API v3. Features a robust CLI and a modern glassmorphism Web UI with smart symbol auto-discovery.',
     icon: Activity,
-    image: '/images/disease-prediction.jpg',
+    image: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?q=80&w=1000&auto=format&fit=crop',
     color: 'from-purple-600 to-teal-600',
-    tech: ['Python', 'Scikit-learn', 'Pandas', 'Streamlit', 'Machine Learning'],
+    tech: ['Python', 'FastAPI', 'JavaScript', 'Fyers API'],
     gradient: 'bg-gradient-to-br from-purple-800/20 to-teal-800/20',
     border: 'border-gradient-to-r from-purple-500/30 to-teal-500/30',
     glow: 'shadow-purple-500/10',
-    githubLink: 'https://github.com/Achal13jain/Disease-prediction-system',
+    githubLink: 'https://github.com/Achal13jain/Fyers-data-extractor',
     //liveLink: 'https://disease-predictor.streamlit.app',
   },
   {
     title: 'Splitwise Web App',
     description: 'Expense sharing application with real-time calculations, group management, and settlement optimization. Clean UI with responsive design.',
     icon: Calculator,
-    image: '/images/splitwise-clone.jpg',
+    image: 'https://res.cloudinary.com/du0ea6cth/image/upload/v1774462553/achal-portfolio/splitwise-clone.jpg',
     color: 'from-teal-600 to-purple-600',
     tech: ['Java', 'Springboot', 'PostgreSQL', 'JavaScript'],
     gradient: 'bg-gradient-to-br from-teal-800/20 to-purple-800/20',
@@ -178,7 +242,7 @@ export const projects: Project[] = [
 
 export const skillCategories: SkillCategory[] = [
   {
-    title: 'Languages',
+    title: 'Programming Languages',
     icon: Code2,
     skills: ['Python', 'Java', 'JavaScript'],
     color: 'from-purple-500 to-purple-700',
@@ -192,7 +256,7 @@ export const skillCategories: SkillCategory[] = [
   {
     title: 'Backend',
     icon: Server,
-    skills: ['FastAPI', 'REST APIs', 'Microservices'],
+    skills: ['FastAPI', 'Django', 'REST APIs', 'Microservices'],
     color: 'from-purple-600 to-teal-600',
   },
   {
