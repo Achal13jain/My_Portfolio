@@ -48,3 +48,5 @@ public/images/*.png
 !public/images/mckinsey-forward.png
 app/icon.png
 app/apple-touch-icon.png
+venv
+public/images/blogs/*
