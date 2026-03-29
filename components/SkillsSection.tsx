@@ -1,15 +1,12 @@
 
 'use client'
 
-import { motion, useMotionTemplate, useMotionValue } from 'framer-motion'
-import { MouseEvent } from 'react'
-// import { Code2, Database, Brain, GitBranch, Server, Smartphone } from 'lucide-react'
+import { motion } from 'framer-motion'
 
 import { skillCategories } from '@/data/portfolio-data'
+import SkillCard from './SkillCard'
 
 const SkillsSection = () => {
-  // skillCategories moved to @/data/portfolio-data
-
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -69,91 +66,13 @@ const SkillsSection = () => {
           viewport={{ once: true }}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
         >
-          {skillCategories.map((category, index) => {
-            const mouseX = useMotionValue(0)
-            const mouseY = useMotionValue(0)
-
-            function handleMouseMove({
-              currentTarget,
-              clientX,
-              clientY,
-            }: MouseEvent) {
-              const { left, top } = currentTarget.getBoundingClientRect()
-              mouseX.set(clientX - left)
-              mouseY.set(clientY - top)
-            }
-
-            return (
-              <motion.div
-                key={category.title}
-                variants={itemVariants}
-                onMouseMove={handleMouseMove}
-                whileHover={{
-                  scale: 1.05,
-                  rotateY: 5,
-                  transition: { type: 'spring', stiffness: 300 }
-                }}
-                className="group relative"
-              >
-                {/* Spotlight Overlay */}
-                <motion.div
-                  className="pointer-events-none absolute -inset-px rounded-2xl opacity-0 transition duration-300 group-hover:opacity-100 z-20"
-                  style={{
-                    background: useMotionTemplate`
-                      radial-gradient(
-                        400px circle at ${mouseX}px ${mouseY}px,
-                        rgba(20, 184, 166, 0.15),
-                        transparent 80%
-                      )
-                    `,
-                  }}
-                />
-
-                {/* Card */}
-                <div className="glass rounded-2xl p-6 h-full border border-slate-700/50 hover:border-purple-500/30 transition-all duration-300 relative overflow-hidden">
-                {/* Gradient Background */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${category.color} opacity-5 group-hover:opacity-10 transition-opacity duration-300`}></div>
-
-                {/* Content */}
-                <div className="relative z-10">
-                  {/* Icon */}
-                  <div className={`inline-flex items-center justify-center w-16 h-16 rounded-xl bg-gradient-to-br ${category.color} text-white mb-4 group-hover:scale-110 transition-transform duration-300`}>
-                    {<category.icon size={32} />}
-                  </div>
-
-                  {/* Title */}
-                  <h3 className="text-xl font-semibold text-white mb-4 group-hover:text-purple-300 transition-colors">
-                    {category.title}
-                  </h3>
-
-                  {/* Skills List */}
-                  <div className="grid grid-cols-2 gap-2">
-                    {category.skills.map((skill, skillIndex) => (
-                      <motion.div
-                        key={skill}
-                        initial={{ opacity: 0, x: -20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: skillIndex * 0.1 }}
-                        className="flex items-center space-x-2"
-                      >
-                        <div className="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-purple-400 to-teal-400"></div>
-                        <span className="text-sm text-slate-300 group-hover:text-slate-200 transition-colors">
-                          {skill}
-                        </span>
-                      </motion.div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Hover Effect */}
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <div className="absolute inset-0 bg-gradient-to-r from-purple-500/5 to-teal-500/5 rounded-2xl"></div>
-                  <div className="absolute -inset-1 bg-gradient-to-r from-purple-500 to-teal-500 rounded-2xl opacity-20 blur"></div>
-                </div>
-              </div>
-            </motion.div>
-          )})}
+          {skillCategories.map((category) => (
+            <SkillCard
+              key={category.title}
+              category={category}
+              variants={itemVariants}
+            />
+          ))}
         </motion.div>
 
         {/* Bottom CTA */}

@@ -23,22 +23,10 @@ const ContactSection = () => {
     })
   }
 
-  // const handleSubmit = async (e: React.FormEvent) => {
-  //   e.preventDefault()
-  //   setIsSubmitting(true)
-
-  //   // Simulate form submission
-  //   setTimeout(() => {
-  //     setIsSubmitting(false)
-  //     setFormData({ name: '', email: '', subject: '', message: '' })
-  //     alert('Message sent successfully! I\'ll get back to you soon.')
-  //   }, 2000)
-  // }
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
 
-    // Use Formspree or Netlify Forms for contact functionality
     try {
       const response = await fetch(`https://formspree.io/f/${process.env.NEXT_PUBLIC_FORMSPREE_ID}`, {
         method: 'POST',
@@ -61,8 +49,6 @@ const ContactSection = () => {
     }
   }
 
-
-
   return (
     <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden bg-gradient-to-b from-navy-950 to-navy-900">
       <div className="max-w-7xl mx-auto relative z-10">
@@ -74,10 +60,10 @@ const ContactSection = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-space-grotesk font-bold text-gradient mb-6">
-            Let's Work Together
+            Let&apos;s Work Together
           </h2>
           <p className="text-lg text-slate-400 max-w-2xl mx-auto leading-relaxed">
-            Ready to bring your ideas to life? Let's connect and create something amazing.
+            Ready to bring your ideas to life? Let&apos;s connect and create something amazing.
           </p>
         </motion.div>
 
@@ -203,7 +189,6 @@ const ContactSection = () => {
           viewport={{ once: true }}
           className="text-center mt-20 pt-8 border-t border-slate-700/50"
         >
-          {/* <p className="text-slate-400 mb-4">Built with Next.js, Tailwind CSS, and Framer Motion</p> */}
           <p className="text-slate-500 text-sm">© 2026 Achal Jain. All rights reserved.</p>
         </motion.div>
       </div>
