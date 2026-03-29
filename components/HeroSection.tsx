@@ -4,18 +4,6 @@ import { motion } from 'framer-motion'
 import { ArrowDown, Download, ExternalLink, Github, Linkedin } from 'lucide-react'
 import { techIcons } from '@/data/portfolio-data'
 import TypewriterText from './TypewriterText'
-import {
-  SiPython,
-  SiJavascript,
-  SiReact,
-  SiNodedotjs,
-  SiPostgresql,
-  SiDocker,
-  SiGit,
-  SiPytorch,
-  SiTensorflow
-} from 'react-icons/si'
-import { FaJava } from 'react-icons/fa'
 import { useEffect, useState } from 'react'
 
 const HeroSection = () => {
@@ -120,7 +108,7 @@ const HeroSection = () => {
             >
               {/* Intro */}
               <span className="block text-base md:text-lg lg:text-xl text-slate-400 tracking-wide">
-                Hi, I'm
+                Hi, I&apos;m
               </span>
 
               {/* Name: largest */}
@@ -160,7 +148,8 @@ const HeroSection = () => {
             >
               <motion.a
                 href="https://drive.google.com/file/d/1gUvVi0MWZhyl3koPBNx1nBtP7qVqANFI/view?usp=sharing"
-                download
+                target="_blank"
+                rel="noopener noreferrer"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="btn-primary px-8 py-3 rounded-full font-semibold flex items-center justify-center space-x-2 shadow-lg"

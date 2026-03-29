@@ -1,5 +1,5 @@
-import { Brain, ShoppingCart, Activity, Calculator, Code2, Database, GitBranch, Server, Smartphone, Monitor, Globe, Mail, Phone, MapPin, Github, Linkedin } from 'lucide-react'
-import { SiPython, SiJavascript, SiReact, SiNodedotjs, SiPostgresql, SiDocker, SiGit, SiPytorch, SiTensorflow } from 'react-icons/si'
+import { Brain, ShoppingCart, Activity, Calculator, Code2, Database, GitBranch, Server, Smartphone, Monitor, Globe, Mail, Phone, MapPin, Github, Linkedin, Twitter } from 'lucide-react'
+import { SiPython, SiJavascript, SiReact, SiNodedotjs, SiPostgresql, SiDocker, SiGit, SiPytorch, SiTensorflow, SiMedium, SiHashnode } from 'react-icons/si'
 import { FaJava } from 'react-icons/fa'
 
 export interface Project {
@@ -345,6 +345,24 @@ export const socialLinks: SocialLink[] = [
     icon: Linkedin,
     href: 'https://linkedin.com/in/achal-jain13',
     color: 'hover:text-teal-400',
+  },
+  {
+    name: 'Twitter',
+    icon: Twitter,
+    href: 'https://x.com/jainachal13',
+    color: 'hover:text-blue-400',
+  },
+  {
+    name: 'Medium',
+    icon: SiMedium,
+    href: 'https://medium.com/@jainachal38',
+    color: 'hover:text-slate-200',
+  },
+  {
+    name: 'Hashnode',
+    icon: SiHashnode,
+    href: 'https://achal-jain.hashnode.dev/',
+    color: 'hover:text-blue-500',
   },
 ]
 

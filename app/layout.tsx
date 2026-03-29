@@ -4,6 +4,8 @@ import Script from 'next/script'
 import './globals.css'
 import ScrollProgress from '@/components/ScrollProgress'
 
+const SITE_URL = 'https://achal-jain-portfolio.netlify.app'
+
 const inter = Inter({ 
   subsets: ['latin'],
   variable: '--font-inter',
@@ -21,14 +23,18 @@ const spaceGrotesk = Space_Grotesk({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: 'Achal Jain - Software Engineer & AI-ML Enthusiast',
   description: 'Portfolio of Achal Jain - B.Tech Computer Science graduate specializing in AI-ML, building production-ready backend systems and ML applications.',
   keywords: 'Achal Jain, Software Engineer, AI ML, Machine Learning, Backend Developer, Computer Science, Portfolio',
   authors: [{ name: 'Achal Jain' }],
+  alternates: {
+    canonical: '/',
+  },
   openGraph: {
     title: 'Achal Jain - Software Engineer & AI-ML Enthusiast',
     description: 'Building production-ready backend systems and ML apps',
-    url: 'https://achal-jain-portfolio.netlify.app/',
+    url: SITE_URL,
     siteName: 'Achal Jain Portfolio',
     type: 'website',
   },
@@ -36,6 +42,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Achal Jain - Software Engineer & AI-ML Enthusiast',
     description: 'Building production-ready backend systems and ML apps',
+    creator: '@jainachal13',
   },
   robots: {
     index: true,
@@ -55,6 +62,34 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <head>
+        <link rel="icon" href="/favicon.ico" />
+      </head>
+      <body className={`${inter.variable} ${poppins.variable} ${spaceGrotesk.variable} font-inter antialiased bg-navy-950 text-slate-100 overflow-x-hidden`}>
+        {/* JSON-LD Structured Data */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'Person',
+              name: 'Achal Jain',
+              url: SITE_URL,
+              jobTitle: 'Software Engineer',
+              alumniOf: {
+                '@type': 'CollegeOrUniversity',
+                name: 'Medicaps University',
+              },
+              knowsAbout: ['Python', 'Java', 'Machine Learning', 'FastAPI', 'React', 'PostgreSQL'],
+              sameAs: [
+                'https://github.com/Achal13jain',
+                'https://linkedin.com/in/achal-jain13',
+                'https://x.com/jainachal13',
+                'https://medium.com/@jainachal38',
+                'https://achal-jain.hashnode.dev/',
+              ],
+            }),
+          }}
+        />
         <Script
           async
           src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`}
@@ -69,11 +104,6 @@ export default function RootLayout({
             gtag('config', '${process.env.NEXT_PUBLIC_GA_ID}');
           `}
         </Script>
-        <link rel="icon" href="/favicon.ico" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
-      </head>
-      <body className={`${inter.variable} ${poppins.variable} ${spaceGrotesk.variable} font-inter antialiased bg-navy-950 text-slate-100 overflow-x-hidden`}>
         <ScrollProgress />
         <div className="relative min-h-screen">
           {/* Background Gradient Mesh */}

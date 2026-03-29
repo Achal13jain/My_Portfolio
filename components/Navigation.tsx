@@ -3,7 +3,7 @@
 
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X, Download, Github, Linkedin, Mail } from 'lucide-react'
+import { Menu, X, Download, Github, Linkedin, ChevronDown, Layout, Table } from 'lucide-react'
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -70,6 +70,38 @@ const Navigation = () => {
               </motion.button>
             ))}
 
+            {/* Live Tools Dropdown */}
+            <div className="relative group">
+              <button className="text-slate-300 hover:text-purple-400 transition-colors duration-200 font-medium flex items-center space-x-1 cursor-pointer py-2">
+                <span>Live Tools</span>
+                <ChevronDown size={14} className="group-hover:rotate-180 transition-transform duration-200" />
+              </button>
+              
+              <div className="absolute top-[100%] right-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 w-[320px]">
+                 <div className="bg-navy-900 border border-slate-700/50 rounded-2xl shadow-2xl overflow-hidden p-2">
+                    <a href="https://achal13jain.github.io/ui-design-patterns/" target="_blank" rel="noopener noreferrer" className="flex items-start p-3 hover:bg-slate-800/80 rounded-xl transition-colors group/item">
+                       <div className="mt-0.5 p-2 bg-purple-500/10 rounded-lg text-purple-400 group-hover/item:text-purple-300 group-hover/item:bg-purple-500/20 transition-colors">
+                          <Layout size={18} />
+                       </div>
+                       <div className="ml-3">
+                          <div className="text-sm font-semibold text-white group-hover/item:text-purple-300 transition-colors">UI Design Patterns</div>
+                          <div className="text-xs text-slate-400 mt-1 leading-snug">Curated visual gallery of modern frontend design patterns</div>
+                       </div>
+                    </a>
+                    
+                    <a href="https://jsontosheet.vercel.app/" target="_blank" rel="noopener noreferrer" className="flex items-start p-3 hover:bg-slate-800/80 rounded-xl transition-colors group/item mt-1">
+                       <div className="mt-0.5 p-2 bg-teal-500/10 rounded-lg text-teal-400 group-hover/item:text-teal-300 group-hover/item:bg-teal-500/20 transition-colors">
+                          <Table size={18} />
+                       </div>
+                       <div className="ml-3">
+                          <div className="text-sm font-semibold text-white group-hover/item:text-teal-300 transition-colors">JSON to Sheet</div>
+                          <div className="text-xs text-slate-400 mt-1 leading-snug">Instantly convert and export JSON data directly into Excel/Sheets</div>
+                       </div>
+                    </a>
+                 </div>
+              </div>
+            </div>
+
             {/* Social Links */}
             <div className="flex items-center space-x-4 ml-8">
               <motion.a
@@ -96,7 +128,8 @@ const Navigation = () => {
               </motion.a>
               <motion.a
                 href="https://drive.google.com/file/d/1gUvVi0MWZhyl3koPBNx1nBtP7qVqANFI/view?usp=sharing"
-                download
+                target="_blank"
+                rel="noopener noreferrer"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="btn-primary px-4 py-2 rounded-full text-sm font-medium flex items-center space-x-2"
@@ -142,6 +175,21 @@ const Navigation = () => {
                 </motion.button>
               ))}
 
+              {/* Mobile Live Tools */}
+              <div className="pt-2 pb-2">
+                <div className="text-slate-400 text-xs font-bold uppercase tracking-wider mb-3 px-2">Live Tools</div>
+                <div className="space-y-2 bg-slate-800/30 rounded-xl p-2">
+                  <a href="https://achal13jain.github.io/ui-design-patterns/" target="_blank" rel="noopener noreferrer" className="flex items-center p-2 rounded-lg hover:bg-slate-700/50 transition-colors">
+                     <Layout size={16} className="text-purple-400 mr-3" />
+                     <span className="text-sm text-slate-300 font-medium">UI Design Patterns</span>
+                  </a>
+                  <a href="https://jsontosheet.vercel.app/" target="_blank" rel="noopener noreferrer" className="flex items-center p-2 rounded-lg hover:bg-slate-700/50 transition-colors">
+                     <Table size={16} className="text-teal-400 mr-3" />
+                     <span className="text-sm text-slate-300 font-medium">JSON to Sheet</span>
+                  </a>
+                </div>
+              </div>
+
               {/* Mobile Social Links */}
               <div className="flex items-center space-x-6 pt-4 border-t border-slate-700">
                 <motion.a
@@ -166,7 +214,8 @@ const Navigation = () => {
                 </motion.a>
                 <motion.a
                   href="https://drive.google.com/file/d/1gUvVi0MWZhyl3koPBNx1nBtP7qVqANFI/view?usp=sharing"
-                  download
+                  target="_blank"
+                  rel="noopener noreferrer"
                   whileHover={{ scale: 1.05 }}
                   className="btn-primary px-4 py-2 rounded-full text-sm font-medium flex items-center space-x-2"
                 >
