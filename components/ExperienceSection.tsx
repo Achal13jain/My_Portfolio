@@ -54,15 +54,15 @@ const ExperienceSection = () => {
 
             <div className="relative">
               {/* Timeline Line */}
-              <div className="absolute left-8 top-0 bottom-0 w-0.5 timeline-line"></div>
+              <div className="absolute left-8 top-0 bottom-0 w-0.5 timeline-line hidden md:block"></div>
 
               {/* Experience Card */}
               <motion.div
                 whileHover={{ scale: 1.02 }}
-                className="relative glass rounded-2xl p-8 ml-20 border border-slate-700/50 hover:border-purple-500/30 transition-all duration-300"
+                className="relative glass rounded-2xl p-6 sm:p-8 ml-0 md:ml-20 border border-slate-700/50 hover:border-purple-500/30 transition-all duration-300"
               >
                 {/* Timeline Dot */}
-                <div className="absolute -left-[4.5rem] top-8 w-4 h-4 rounded-full bg-gradient-to-r from-purple-500 to-teal-500 border-4 border-navy-950"></div>
+                <div className="absolute -left-[4.5rem] top-8 w-4 h-4 rounded-full bg-gradient-to-r from-purple-500 to-teal-500 border-4 border-navy-950 hidden md:block"></div>
 
                 {/* Header */}
                 <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-6">
@@ -154,15 +154,15 @@ const ExperienceSection = () => {
 
             <div className="relative">
               {/* Timeline Line */}
-              <div className="absolute left-8 top-0 bottom-0 w-0.5 timeline-line"></div>
+              <div className="absolute left-8 top-0 bottom-0 w-0.5 timeline-line hidden md:block"></div>
 
               {/* Education Card */}
               <motion.div
                 whileHover={{ scale: 1.02 }}
-                className="relative glass rounded-2xl p-8 ml-20 border border-slate-700/50 hover:border-teal-500/30 transition-all duration-300"
+                className="relative glass rounded-2xl p-6 sm:p-8 ml-0 md:ml-20 border border-slate-700/50 hover:border-teal-500/30 transition-all duration-300"
               >
                 {/* Timeline Dot */}
-                <div className="absolute -left-[4.5rem] top-8 w-4 h-4 rounded-full bg-gradient-to-r from-teal-500 to-purple-500 border-4 border-navy-950"></div>
+                <div className="absolute -left-[4.5rem] top-8 w-4 h-4 rounded-full bg-gradient-to-r from-teal-500 to-purple-500 border-4 border-navy-950 hidden md:block"></div>
 
                 {/* Header */}
                 <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-6">

@@ -1,171 +1,154 @@
-# Achal Jain Portfolio
+# Achal Jain — Portfolio
 
-A modern, responsive portfolio website built with Next.js 14, Tailwind CSS, and Framer Motion. Features a unique dark navy theme with purple-teal gradient accents, smooth animations, and innovative layouts.
+A modern, responsive portfolio built with **Next.js 14**, **Tailwind CSS**, and **Framer Motion**. Features a dark navy theme with purple-teal gradient accents, smooth animations, and optimized performance.
 
-## 🚀 Features
+[![Live Demo](https://img.shields.io/badge/Live-Demo-a855f7?style=for-the-badge&logo=netlify&logoColor=white)](https://achal-jain-portfolio.netlify.app)
+[![Next.js](https://img.shields.io/badge/Next.js-14-000?style=flat-square&logo=next.js)](https://nextjs.org)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.2-3178C6?style=flat-square&logo=typescript&logoColor=white)](https://typescriptlang.org)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.3-06B6D4?style=flat-square&logo=tailwindcss&logoColor=white)](https://tailwindcss.com)
 
-- **Modern Design**: Dark navy background with purple-teal gradient theme
-- **Unique Layouts**: Circular skill arrangement, asymmetric project cards, timeline experience
-- **Advanced Animations**: Mouse tracking, particle effects, smooth transitions using Framer Motion
-- **Responsive**: Mobile-first design with perfect scaling across all devices
-- **Performance**: Optimized Next.js 14 with fast loading and smooth interactions
-- **Accessibility**: ARIA labels, keyboard navigation, screen reader support
-- **SEO Optimized**: Meta tags, structured data, and social media optimization
+## ✨ Features
+
+- **7 Sections** — Hero, Skills, Certifications, Projects, Blogs, Experience, Contact
+- **Interactive Animations** — Mouse-tracking gradient orb, floating particles, staggered reveals
+- **Blog Integration** — Dynamic cards for Medium and Hashnode posts with Cloudinary-hosted images
+- **Live Tools Dropdown** — Quick links to side projects (UI Design Patterns, JSON to Sheet)
+- **Toast Notifications** — Custom toast system replacing native alerts
+- **Accessibility** — Skip-to-content, focus-visible styles, `prefers-reduced-motion`, ARIA labels
+- **SEO** — JSON-LD structured data, OG/Twitter images, canonical URLs, robots.txt, sitemap
+- **Performance** — Self-hosted fonts via `next/font`, optimized particles, `useMotionValue` mouse tracking
 
 ## 🛠️ Tech Stack
 
-- **Framework**: Next.js 14 (App Router)
-- **Styling**: Tailwind CSS with custom color palette
-- **Animations**: Framer Motion
-- **Icons**: Lucide React
-- **Typography**: Inter, Poppins, Space Grotesk fonts
-- **Language**: TypeScript
+| Category | Technology |
+|----------|-----------|
+| Framework | Next.js 14 (App Router, Static Export) |
+| Language | TypeScript |
+| Styling | Tailwind CSS |
+| Animations | Framer Motion |
+| Icons | Lucide React, React Icons |
+| Typography | Inter, Poppins, Space Grotesk (via `next/font`) |
+| Forms | Formspree |
+| Analytics | Google Analytics |
+| Hosting | Netlify |
+| Images | Cloudinary |
 
 ## 📁 Project Structure
 
 ```
-achal-portfolio/
 ├── app/
-│   ├── globals.css          # Global styles and custom animations
-│   ├── layout.tsx           # Root layout with SEO optimization
-│   └── page.tsx            # Main page component
+│   ├── globals.css              # Global styles, focus/a11y, toast, reduced-motion
+│   ├── layout.tsx               # Root layout, SEO metadata, JSON-LD, OG image
+│   └── page.tsx                 # Main page — assembles all sections
 ├── components/
-│   ├── Navigation.tsx       # Sticky navigation with smooth scroll
-│   ├── HeroSection.tsx     # Interactive hero with particle animations
-│   ├── SkillsSection.tsx   # Circular skill grid with hover effects
-│   ├── ProjectsSection.tsx # Asymmetric project cards
-│   ├── ExperienceSection.tsx # Timeline-based experience
-│   └── ContactSection.tsx  # Contact form with validation
+│   ├── Navigation.tsx           # Sticky nav, active section indicator, Live Tools dropdown
+│   ├── HeroSection.tsx          # Animated hero with particles + gradient orb
+│   ├── SkillsSection.tsx        # Skill grid (delegates to SkillCard)
+│   ├── SkillCard.tsx            # Individual skill card with spotlight hover
+│   ├── CertificationsSection.tsx # Certification badges
+│   ├── ProjectsSection.tsx      # Project grid (delegates to ProjectCard)
+│   ├── ProjectCard.tsx          # Individual project card with spotlight hover
+│   ├── BlogsSection.tsx         # Blog grid (delegates to BlogCard)
+│   ├── BlogCard.tsx             # Featured + Regular blog card variants
+│   ├── ExperienceSection.tsx    # Timeline experience + education
+│   ├── ContactSection.tsx       # Contact form (Formspree) + social links
+│   ├── ScrollProgress.tsx       # Top scroll progress bar
+│   ├── ScrollToTop.tsx          # Floating scroll-to-top button
+│   ├── Toast.tsx                # Toast notification provider + context
+│   └── TypewriterText.tsx       # Animated typewriter text
+├── data/
+│   └── portfolio-data.ts        # All content: projects, skills, social links, etc.
 ├── public/
-│   └── Achal_Jain_Resume.pdf # Resume file for download
-├── package.json            # Dependencies and scripts
-├── tailwind.config.js      # Custom Tailwind configuration
-├── tsconfig.json          # TypeScript configuration
-├── next.config.js         # Next.js configuration
-└── postcss.config.js      # PostCSS configuration
+│   ├── og-image.png             # Open Graph / Twitter Card image
+│   ├── robots.txt               # Search engine crawling rules
+│   ├── sitemap.xml              # Sitemap for SEO
+│   └── site.webmanifest         # PWA manifest
+├── tailwind.config.js           # Custom colors (navy, purple, teal)
+├── tsconfig.json                # TypeScript (es2017, esnext)
+├── next.config.js               # Static export, Cloudinary image domain
+└── package.json
 ```
 
 ## 🚀 Quick Start
 
 ### Prerequisites
 
-- Node.js 18 or higher
-- npm or yarn package manager
-- VS Code (recommended)
+- Node.js 18+
+- npm
 
-### Installation
+### Setup
 
-1. **Extract the project files**
-   ```bash
-   # Extract the zip file to your desired location
-   # Navigate to the project directory
-   cd achal-portfolio
-   ```
+```bash
+# Clone the repository
+git clone https://github.com/Achal13jain/Portfolio.git
+cd Portfolio
 
-2. **Install dependencies**
-   ```bash
-   npm install
-   # or
-   yarn install
-   ```
+# Install dependencies
+npm install
 
-3. **Add your resume**
-   - Place your resume PDF file in the `public/` folder
-   - Name it `Achal_Jain_Resume.pdf` (or update the filename in components)
+# Create environment file
+cp .env.example .env.local
+# Edit .env.local with your Formspree ID and GA tracking ID
 
-4. **Start development server**
-   ```bash
-   npm run dev
-   # or
-   yarn dev
-   ```
+# Start dev server
+npm run dev
+```
 
-5. **Open your browser**
-   - Visit `http://localhost:3000`
-   - Your portfolio should load with full animations and styling
+Open [http://localhost:3000](http://localhost:3000)
+
+### Environment Variables
+
+| Variable | Description |
+|----------|-------------|
+| `NEXT_PUBLIC_FORMSPREE_ID` | Formspree form ID for contact form |
+| `NEXT_PUBLIC_GA_ID` | Google Analytics measurement ID |
 
 ## 🎨 Customization
 
+### Content
+
+All portfolio content is centralized in [`data/portfolio-data.ts`](data/portfolio-data.ts):
+
+- `projects` — Project cards with title, description, tech stack, links
+- `skillCategories` — Skill grid with icon and category
+- `blogs` — Blog posts from Medium/Hashnode
+- `certifications` — Certification badges
+- `experience` / `education` — Timeline entries
+- `socialLinks` — GitHub, LinkedIn, Twitter, Medium, Hashnode
+- `contactInfo` — Email, phone, location
+
 ### Colors
-Edit `tailwind.config.js` to change the color scheme:
-```javascript
+
+Edit `tailwind.config.js` to change the theme:
+```js
 colors: {
-  // Custom your colors here
-  purple: { /* your purple shades */ },
-  teal: { /* your teal shades */ },
-  navy: { /* your navy shades */ },
+  navy: { 900: '#0f172a', 950: '#020617' },
+  purple: { /* your shades */ },
+  teal: { /* your shades */ },
 }
 ```
 
-### Content
-Update the following files with your information:
-- `components/HeroSection.tsx` - Name, title, tagline
-- `components/SkillsSection.tsx` - Skills and technologies
-- `components/ProjectsSection.tsx` - Project details and links
-- `components/ExperienceSection.tsx` - Work experience and education
-- `components/ContactSection.tsx` - Contact information and social links
+## 📦 Scripts
 
-### Fonts
-Change fonts in `app/layout.tsx`:
-```typescript
-import { YourFont } from 'next/font/google'
-```
-
-## 📱 Responsive Design
-
-The portfolio is fully responsive with breakpoints:
-- **Mobile**: < 640px
-- **Tablet**: 640px - 1024px
-- **Desktop**: > 1024px
+| Command | Description |
+|---------|------------|
+| `npm run dev` | Start development server |
+| `npm run build` | Production build (static export to `out/`) |
+| `npm run start` | Start production server |
+| `npm run lint` | Run ESLint |
 
 ## 🚀 Deployment
 
-### Vercel (Recommended)
-1. Push your code to GitHub
-2. Connect your repository to Vercel
-3. Deploy automatically with zero configuration
+The site uses `output: 'export'` in `next.config.js` for static HTML export. Deploy the `out/` folder to any static host:
 
-### Manual Deployment
-1. Build the project:
-   ```bash
-   npm run build
-   ```
-2. Export static files:
-   ```bash
-   npm run start
-   ```
-
-## 🎭 Animations
-
-The portfolio includes several custom animations:
-- **Hero**: Mouse-tracking gradient orb and floating particles
-- **Skills**: Staggered reveal with hover scaling
-- **Projects**: Card hover effects with glow and lift
-- **Experience**: Timeline progression animation
-- **Contact**: Form validation with smooth transitions
-
-## 🔧 Development Commands
-
-- `npm run dev` - Start development server
-- `npm run build` - Create production build
-- `npm run start` - Start production server
-- `npm run lint` - Run ESLint for code quality
+- **Netlify**: Connect GitHub repo → auto-deploys on push
+- **Vercel**: Connect GitHub repo → zero-config deployment
+- **GitHub Pages**: Push `out/` to `gh-pages` branch
 
 ## 📄 License
 
-This project is open source and available under the MIT License.
-
-## 🤝 Contributing
-
-Feel free to fork this project and customize it for your own portfolio. If you make improvements, pull requests are welcome!
-
-## 📞 Support
-
-If you need help setting up or customizing this portfolio:
-- Check the documentation above
-- Review the code comments in each component
-- Open an issue on GitHub
+This project is open source under the [MIT License](LICENSE).
 
 ---
 
-Built with ❤️ using Next.js, Tailwind CSS, and Framer Motion
+Built with ❤️ by [Achal Jain](https://achal-jain-portfolio.netlify.app)

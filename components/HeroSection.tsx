@@ -1,28 +1,32 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { motion, useMotionValue, useSpring } from 'framer-motion'
 import { ArrowDown, Download, ExternalLink, Github, Linkedin } from 'lucide-react'
 import { techIcons } from '@/data/portfolio-data'
 import TypewriterText from './TypewriterText'
 import { useEffect, useState } from 'react'
 
 const HeroSection = () => {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
+  const mouseX = useMotionValue(0)
+  const mouseY = useMotionValue(0)
+  const springX = useSpring(mouseX, { damping: 30, stiffness: 200 })
+  const springY = useSpring(mouseY, { damping: 30, stiffness: 200 })
   const [isClient, setIsClient] = useState(false)
 
   useEffect(() => {
     setIsClient(true)
 
     const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY })
+      mouseX.set(e.clientX - 192)
+      mouseY.set(e.clientY - 192)
     }
 
     window.addEventListener('mousemove', handleMouseMove)
     return () => window.removeEventListener('mousemove', handleMouseMove)
-  }, [])
+  }, [mouseX, mouseY])
 
-  const scrollToProjects = () => {
-    const element = document.querySelector('#projects')
+  const scrollToSkills = () => {
+    const element = document.querySelector('#skills')
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' })
     }
@@ -30,13 +34,11 @@ const HeroSection = () => {
 
 
 
-  // Fixed particle positions to avoid hydration mismatch
+  // Fixed particle positions — reduced to 12 for better mobile performance
   const particlePositions = [
     { x: 100, y: 200 }, { x: 300, y: 150 }, { x: 500, y: 300 }, { x: 700, y: 100 },
     { x: 200, y: 400 }, { x: 600, y: 250 }, { x: 800, y: 350 }, { x: 150, y: 500 },
     { x: 400, y: 50 }, { x: 750, y: 450 }, { x: 50, y: 300 }, { x: 900, y: 200 },
-    { x: 250, y: 100 }, { x: 550, y: 400 }, { x: 350, y: 250 }, { x: 650, y: 150 },
-    { x: 450, y: 350 }, { x: 150, y: 250 }, { x: 850, y: 300 }, { x: 300, y: 450 }
   ]
 
   return (
@@ -70,12 +72,9 @@ const HeroSection = () => {
           className="absolute w-96 h-96 rounded-full opacity-20 blur-3xl"
           style={{
             background: 'linear-gradient(45deg, #a855f7, #14b8a6)',
+            x: springX,
+            y: springY,
           }}
-          animate={{
-            x: mousePosition.x - 192,
-            y: mousePosition.y - 192,
-          }}
-          transition={{ type: 'spring', damping: 30, stiffness: 200 }}
         />
       )}
 
@@ -159,7 +158,7 @@ const HeroSection = () => {
               </motion.a>
 
               <motion.button
-                onClick={scrollToProjects}
+                onClick={() => document.querySelector('#projects')?.scrollIntoView({ behavior: 'smooth' })}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="px-8 py-3 rounded-full border-2 border-purple-500 text-purple-300 hover:bg-purple-500/10 transition-colors font-semibold flex items-center justify-center space-x-2"
@@ -280,7 +279,7 @@ const HeroSection = () => {
             animate={{ y: [0, 10, 0] }}
             transition={{ duration: 2, repeat: Infinity }}
             className="flex flex-col items-center space-y-2 text-slate-400 cursor-pointer"
-            onClick={scrollToProjects}
+            onClick={scrollToSkills}
           >
             <span className="text-sm font-medium">Scroll to explore</span>
             <ArrowDown size={20} />
