@@ -8,6 +8,7 @@ import { Menu, X, Download, Github, Linkedin, ChevronDown, Layout, Table } from 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const [activeSection, setActiveSection] = useState('home')
 
   useEffect(() => {
     const handleScroll = () => {
@@ -15,6 +16,29 @@ const Navigation = () => {
     }
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  // Track active section via IntersectionObserver
+  useEffect(() => {
+    const sectionIds = ['home', 'skills', 'certifications', 'projects', 'blogs', 'experience', 'contact']
+    const observers: IntersectionObserver[] = []
+
+    sectionIds.forEach(id => {
+      const el = document.getElementById(id)
+      if (!el) return
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            setActiveSection(id)
+          }
+        },
+        { threshold: 0.3, rootMargin: '-80px 0px 0px 0px' }
+      )
+      observer.observe(el)
+      observers.push(observer)
+    })
+
+    return () => observers.forEach(o => o.disconnect())
   }, [])
 
   const navItems = [
@@ -62,7 +86,11 @@ const Navigation = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
                 onClick={() => scrollToSection(item.href)}
-                className="text-slate-300 hover:text-purple-400 transition-colors duration-200 font-medium"
+                className={`transition-colors duration-200 font-medium ${
+                  activeSection === item.href.replace('#', '')
+                    ? 'text-purple-400'
+                    : 'text-slate-300 hover:text-purple-400'
+                }`}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >

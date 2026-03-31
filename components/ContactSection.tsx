@@ -4,10 +4,12 @@
 import { motion } from 'framer-motion'
 import { Send } from 'lucide-react'
 import { useState } from 'react'
+import { useToast } from './Toast'
 
 import { contactInfo, socialLinks } from '@/data/portfolio-data'
 
 const ContactSection = () => {
+  const { showToast } = useToast()
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -38,12 +40,12 @@ const ContactSection = () => {
 
       if (response.ok) {
         setFormData({ name: '', email: '', subject: '', message: '' })
-        alert('Message sent successfully! I\'ll get back to you soon.')
+        showToast('Message sent successfully! I\'ll get back to you soon.', 'success')
       } else {
-        alert('Failed to send message. Please try again.')
+        showToast('Failed to send message. Please try again.', 'error')
       }
-    } catch (error) {
-      alert('Error sending message. Please try again.')
+    } catch {
+      showToast('Error sending message. Please try again.', 'error')
     } finally {
       setIsSubmitting(false)
     }
@@ -129,45 +131,61 @@ const ContactSection = () => {
 
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <label htmlFor="contact-name" className="sr-only">Your Name</label>
+                    <input
+                      id="contact-name"
+                      type="text"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      required
+                      className="w-full px-4 py-3 bg-slate-800/50 border border-slate-600/50 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:border-purple-500/50"
+                      placeholder="Your Name"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="contact-email" className="sr-only">Your Email</label>
+                    <input
+                      id="contact-email"
+                      type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      required
+                      className="w-full px-4 py-3 bg-slate-800/50 border border-slate-600/50 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:border-purple-500/50"
+                      placeholder="Your Email"
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label htmlFor="contact-subject" className="sr-only">Subject</label>
                   <input
+                    id="contact-subject"
                     type="text"
-                    name="name"
-                    value={formData.name}
+                    name="subject"
+                    value={formData.subject}
                     onChange={handleChange}
                     required
                     className="w-full px-4 py-3 bg-slate-800/50 border border-slate-600/50 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:border-purple-500/50"
-                    placeholder="Your Name"
-                  />
-                  <input
-                    type="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 bg-slate-800/50 border border-slate-600/50 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:border-purple-500/50"
-                    placeholder="Your Email"
+                    placeholder="Subject"
                   />
                 </div>
 
-                <input
-                  type="text"
-                  name="subject"
-                  value={formData.subject}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-3 bg-slate-800/50 border border-slate-600/50 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:border-purple-500/50"
-                  placeholder="Subject"
-                />
-
-                <textarea
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
-                  rows={5}
-                  className="w-full px-4 py-3 bg-slate-800/50 border border-slate-600/50 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:border-purple-500/50 resize-none"
-                  placeholder="Your message..."
-                />
+                <div>
+                  <label htmlFor="contact-message" className="sr-only">Your Message</label>
+                  <textarea
+                    id="contact-message"
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    required
+                    rows={5}
+                    className="w-full px-4 py-3 bg-slate-800/50 border border-slate-600/50 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:border-purple-500/50 resize-none"
+                    placeholder="Your message..."
+                  />
+                </div>
 
                 <motion.button
                   type="submit"

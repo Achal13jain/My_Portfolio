@@ -68,6 +68,7 @@ body {
 /* Glass morphism effect */
 .glass {
   background: rgba(30, 41, 59, 0.1);
+  -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(148, 163, 184, 0.1);
 }
@@ -172,4 +173,95 @@ body {
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
+}
+
+/* --- P1 FIXES --- */
+
+/* 7.3: Focus styles for keyboard navigation */
+*:focus-visible {
+  outline: 2px solid #a855f7;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid #a855f7;
+  outline-offset: 2px;
+}
+
+/* 7.5: Skip to content link */
+.skip-to-content {
+  position: fixed;
+  top: -100%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(45deg, #a855f7, #14b8a6);
+  color: white;
+  font-weight: 600;
+  border-radius: 0 0 0.75rem 0.75rem;
+  transition: top 0.2s ease;
+}
+
+.skip-to-content:focus {
+  top: 0;
+}
+
+/* 7.4: Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .text-gradient {
+    animation: none;
+  }
+
+  .animate-float,
+  .animate-pulse,
+  .float-animation {
+    animation: none;
+  }
+}
+
+/* Toast notification styles */
+.toast-container {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.toast {
+  padding: 1rem 1.5rem;
+  border-radius: 0.75rem;
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  font-size: 0.875rem;
+  font-weight: 500;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  max-width: 400px;
+}
+
+.toast-success {
+  background: rgba(20, 184, 166, 0.15);
+  color: #5eead4;
+  border-color: rgba(20, 184, 166, 0.3);
+}
+
+.toast-error {
+  background: rgba(239, 68, 68, 0.15);
+  color: #fca5a5;
+  border-color: rgba(239, 68, 68, 0.3);
 }
