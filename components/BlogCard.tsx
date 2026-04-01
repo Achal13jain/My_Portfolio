@@ -90,7 +90,7 @@ export const FeaturedBlogCard = ({ post, variants }: FeaturedBlogCardProps) => {
             <div className="absolute inset-0 bg-gradient-to-r from-black/20 to-transparent"></div>
             
             {/* Category Tag overlay */}
-            <div className={`absolute top-6 left-6 ${config.badgeBg} backdrop-blur-md border ${config.badgeBorder} ${config.badgeText} px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase`}>
+            <div className="absolute top-6 left-6 bg-navy-950/80 backdrop-blur-sm border border-slate-500/30 text-white px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase shadow-lg">
               {post.category}
             </div>
           </div>
@@ -201,7 +201,7 @@ export const RegularBlogCard = ({ post, variants }: RegularBlogCardProps) => {
             {/* Image Overlay */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
             
-            <div className={`absolute top-4 left-4 ${config.badgeBg} backdrop-blur-md border ${config.badgeBorder} ${config.badgeText} px-3 py-1 rounded-full text-[10px] font-bold tracking-widest uppercase`}>
+            <div className="absolute top-4 left-4 bg-navy-950/80 backdrop-blur-sm border border-slate-500/30 text-white px-3 py-1 rounded-full text-[10px] font-bold tracking-widest uppercase shadow-lg">
               {post.category}
             </div>
           </div>
