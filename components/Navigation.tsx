@@ -32,7 +32,7 @@ const Navigation = () => {
             setActiveSection(id)
           }
         },
-        { threshold: 0.3, rootMargin: '-80px 0px 0px 0px' }
+        { threshold: 0, rootMargin: '-100px 0px -60% 0px' }
       )
       observer.observe(el)
       observers.push(observer)
@@ -132,6 +132,7 @@ const Navigation = () => {
 
             {/* Social Links */}
             <div className="flex items-center space-x-4 ml-8">
+              {/* 
               <motion.a
                 href="https://github.com/Achal13jain"
                 target="_blank"
@@ -154,6 +155,7 @@ const Navigation = () => {
               >
                 <Linkedin size={20} />
               </motion.a>
+              */}
               <motion.a
                 href="https://drive.google.com/file/d/1gUvVi0MWZhyl3koPBNx1nBtP7qVqANFI/view?usp=sharing"
                 target="_blank"
@@ -197,7 +199,11 @@ const Navigation = () => {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: index * 0.1 }}
                   onClick={() => scrollToSection(item.href)}
-                  className="block w-full text-left text-slate-300 hover:text-purple-400 transition-colors py-2 font-medium"
+                  className={`block w-full text-left py-3 text-lg font-medium transition-colors ${
+                    activeSection === item.href.replace('#', '')
+                      ? 'text-purple-400'
+                      : 'text-slate-300'
+                  }`}
                 >
                   {item.name}
                 </motion.button>
@@ -220,6 +226,7 @@ const Navigation = () => {
 
               {/* Mobile Social Links */}
               <div className="flex items-center space-x-6 pt-4 border-t border-slate-700">
+                {/*
                 <motion.a
                   href="https://github.com/Achal13jain"
                   target="_blank"
@@ -240,6 +247,7 @@ const Navigation = () => {
                 >
                   <Linkedin size={24} />
                 </motion.a>
+                */}
                 <motion.a
                   href="https://drive.google.com/file/d/1gUvVi0MWZhyl3koPBNx1nBtP7qVqANFI/view?usp=sharing"
                   target="_blank"

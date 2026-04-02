@@ -1,11 +1,13 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import { useState } from 'react'
 
 import { blogs } from '@/data/portfolio-data'
 import { FeaturedBlogCard, RegularBlogCard } from './BlogCard'
 
 const BlogsSection = () => {
+  const [showAll, setShowAll] = useState(false)
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -33,6 +35,7 @@ const BlogsSection = () => {
 
   const featuredPost = blogs.find(b => b.featured) || blogs[0]
   const otherPosts = blogs.filter(b => b !== featuredPost)
+  const displayedOtherPosts = showAll ? otherPosts : otherPosts.slice(0, 2)
 
   return (
     <section id="blogs" className="relative">
@@ -78,7 +81,7 @@ const BlogsSection = () => {
 
           {/* Regular Posts Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {otherPosts.map((post) => (
+            {displayedOtherPosts.map((post) => (
               <RegularBlogCard
                 key={post.title}
                 post={post}
@@ -86,6 +89,21 @@ const BlogsSection = () => {
               />
             ))}
           </div>
+
+          {otherPosts.length > 2 && (
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              className="mt-12 flex justify-center"
+            >
+              <button
+                onClick={() => setShowAll(!showAll)}
+                className="bg-navy-800 hover:bg-navy-700 text-purple-400 hover:text-purple-300 border border-purple-500/30 px-8 py-3 rounded-full text-sm font-medium transition-all duration-300 shadow-lg hover:shadow-purple-500/20 focus:outline-none focus:ring-2 focus:ring-purple-500/50"
+              >
+                {showAll ? 'See Less' : 'See More'}
+              </button>
+            </motion.div>
+          )}
         </motion.div>
       </div>
       </div>

@@ -2,10 +2,14 @@
 
 import { motion } from 'framer-motion'
 import { Award } from 'lucide-react'
+import { useState } from 'react'
 import { certifications } from '@/data/portfolio-data'
 import Image from 'next/image'
 
 const CertificationsSection = () => {
+    const [showAll, setShowAll] = useState(false)
+    const displayedCerts = showAll ? certifications : certifications.slice(0, 3)
+
     return (
         <section id="certifications" className="py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden bg-navy-900">
             {/* Background Elements */}
@@ -33,7 +37,7 @@ const CertificationsSection = () => {
                 </motion.div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {certifications.map((cert, index) => (
+                    {displayedCerts.map((cert, index) => (
                         <motion.div
                             key={index}
                             initial={{ opacity: 0, y: 20 }}
@@ -87,6 +91,21 @@ const CertificationsSection = () => {
                         </motion.div>
                     ))}
                 </div>
+
+                {certifications.length > 3 && (
+                    <motion.div 
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        className="mt-12 flex justify-center"
+                    >
+                        <button
+                            onClick={() => setShowAll(!showAll)}
+                            className="bg-navy-800 hover:bg-navy-700 text-purple-400 hover:text-purple-300 border border-purple-500/30 px-8 py-3 rounded-full text-sm font-medium transition-all duration-300 shadow-lg hover:shadow-purple-500/20 focus:outline-none focus:ring-2 focus:ring-purple-500/50"
+                        >
+                            {showAll ? 'See Less' : 'See More'}
+                        </button>
+                    </motion.div>
+                )}
             </div>
         </section>
     )
