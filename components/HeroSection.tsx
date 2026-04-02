@@ -2,6 +2,7 @@
 
 import { motion, useMotionValue, useSpring } from 'framer-motion'
 import { ArrowDown, Download, ExternalLink, Github, Linkedin } from 'lucide-react'
+import { SiMedium, SiHashnode, SiX } from 'react-icons/si'
 import { techIcons } from '@/data/portfolio-data'
 import TypewriterText from './TypewriterText'
 import { useEffect, useState } from 'react'
@@ -197,6 +198,39 @@ const HeroSection = () => {
                 className="text-slate-400 hover:text-teal-400 transition-colors"
               >
                 <Linkedin size={24} />
+              </motion.a>
+              <motion.a
+                href="https://x.com/jainachal13"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="X (Twitter) Profile"
+                whileHover={{ scale: 1.2, rotate: 5 }}
+                whileTap={{ scale: 0.9 }}
+                className="text-slate-400 hover:text-blue-400 transition-colors"
+              >
+                <SiX size={22} />
+              </motion.a>
+              <motion.a
+                href="https://medium.com/@jainachal38"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Medium Blog"
+                whileHover={{ scale: 1.2, rotate: -5 }}
+                whileTap={{ scale: 0.9 }}
+                className="text-slate-400 hover:text-slate-200 transition-colors"
+              >
+                <SiMedium size={24} />
+              </motion.a>
+              <motion.a
+                href="https://achal-jain.hashnode.dev/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Hashnode Blog"
+                whileHover={{ scale: 1.2, rotate: 5 }}
+                whileTap={{ scale: 0.9 }}
+                className="text-slate-400 hover:text-blue-500 transition-colors"
+              >
+                <SiHashnode size={24} />
               </motion.a>
             </motion.div>
           </motion.div>
