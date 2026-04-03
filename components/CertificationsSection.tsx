@@ -8,7 +8,6 @@ import Image from 'next/image'
 
 const CertificationsSection = () => {
     const [showAll, setShowAll] = useState(false)
-    const displayedCerts = showAll ? certifications : certifications.slice(0, 3)
 
     return (
         <section id="certifications" className="py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden bg-navy-900">
@@ -37,7 +36,7 @@ const CertificationsSection = () => {
                 </motion.div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {displayedCerts.map((cert, index) => (
+                    {certifications.map((cert, index) => (
                         <motion.div
                             key={index}
                             initial={{ opacity: 0, y: 20 }}
@@ -45,7 +44,7 @@ const CertificationsSection = () => {
                             viewport={{ once: true }}
                             transition={{ delay: index * 0.1, duration: 0.5 }}
                             whileHover={{ y: -10 }}
-                            className="group relative"
+                            className={`group relative ${!showAll && index >= 3 ? 'hidden md:block' : 'block'}`}
                         >
                             <a
                                 href={cert.link}
@@ -96,7 +95,7 @@ const CertificationsSection = () => {
                     <motion.div 
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
-                        className="mt-12 flex justify-center"
+                        className="mt-12 flex md:hidden justify-center"
                     >
                         <button
                             onClick={() => setShowAll(!showAll)}
