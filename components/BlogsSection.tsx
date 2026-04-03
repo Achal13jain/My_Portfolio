@@ -35,7 +35,6 @@ const BlogsSection = () => {
 
   const featuredPost = blogs.find(b => b.featured) || blogs[0]
   const otherPosts = blogs.filter(b => b !== featuredPost)
-  const displayedOtherPosts = showAll ? otherPosts : otherPosts.slice(0, 2)
 
   return (
     <section id="blogs" className="relative">
@@ -80,8 +79,8 @@ const BlogsSection = () => {
           )}
 
           {/* Regular Posts Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {displayedOtherPosts.map((post) => (
+          <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 ${!showAll ? '[&>*:nth-child(n+3)]:hidden md:[&>*:nth-child(n+3)]:block' : ''}`}>
+            {otherPosts.map((post) => (
               <RegularBlogCard
                 key={post.title}
                 post={post}
@@ -94,7 +93,7 @@ const BlogsSection = () => {
             <motion.div 
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              className="mt-12 flex justify-center"
+              className="mt-12 flex md:hidden justify-center"
             >
               <button
                 onClick={() => setShowAll(!showAll)}

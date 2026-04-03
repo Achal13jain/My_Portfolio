@@ -13,8 +13,15 @@ const Navigation = () => {
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50)
+      
+      // Force 'contact' active if scrolled to the absolute bottom of the page
+      if (window.innerHeight + Math.round(window.scrollY) >= document.body.offsetHeight - 100) {
+        setActiveSection('contact')
+      }
     }
     window.addEventListener('scroll', handleScroll)
+    // Initial check
+    handleScroll()
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 

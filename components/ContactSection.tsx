@@ -52,7 +52,7 @@ const ContactSection = () => {
   }
 
   return (
-    <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden bg-gradient-to-b from-navy-950 to-navy-900">
+    <section id="contact" className="pt-20 pb-8 px-4 sm:px-6 lg:px-8 relative overflow-hidden bg-gradient-to-b from-navy-950 to-navy-900">
       <div className="max-w-7xl mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -100,24 +100,6 @@ const ContactSection = () => {
               ))}
             </div>
 
-            <div className="pt-8 border-t border-slate-700/50">
-              <h4 className="text-lg font-semibold text-white mb-4">Connect With Me</h4>
-              <div className="flex items-center space-x-6">
-                {socialLinks.map((social, index) => (
-                  <motion.a
-                    key={social.name}
-                    href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={social.name}
-                    whileHover={{ scale: 1.2 }}
-                    className={`text-slate-400 ${social.color} transition-colors p-3 rounded-lg hover:bg-slate-800/50`}
-                  >
-                    {<social.icon size={24} />}
-                  </motion.a>
-                ))}
-              </div>
-            </div>
           </motion.div>
 
           <motion.div
@@ -201,14 +183,29 @@ const ContactSection = () => {
           </motion.div>
         </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mt-20 pt-8 border-t border-slate-700/50"
-        >
-          <p className="text-slate-500 text-sm">© 2026 Achal Jain. All rights reserved.</p>
-        </motion.div>
+        {/* Footer Area */}
+        <footer className="mt-20 pt-6 border-t border-slate-700/50">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+            <p className="text-slate-400 text-sm font-medium">
+              © {new Date().getFullYear()} Achal Jain
+            </p>
+            
+            <div className="flex items-center space-x-5 sm:space-x-6 pr-12 sm:pr-16">
+              {socialLinks.map((social) => (
+                <a
+                  key={social.name}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={social.name}
+                  className="text-slate-400 hover:text-purple-400 transition-colors"
+                >
+                  <social.icon size={22} />
+                </a>
+              ))}
+            </div>
+          </div>
+        </footer>
       </div>
     </section>
   )
