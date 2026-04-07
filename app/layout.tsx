@@ -5,6 +5,7 @@ import './globals.css'
 import ScrollProgress from '@/components/ScrollProgress'
 import ScrollToTop from '@/components/ScrollToTop'
 import { ToastProvider } from '@/components/Toast'
+import ClarityAnalytics from '@/components/ClarityAnalytics'
 
 const SITE_URL = 'https://achal-jain-portfolio.netlify.app'
 
@@ -120,6 +121,7 @@ export default function RootLayout({
           `}
         </Script>
         <ToastProvider>
+          <ClarityAnalytics />
           <ScrollProgress />
           <div className="relative min-h-screen">
             {/* Background Gradient Mesh */}
