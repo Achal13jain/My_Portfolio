@@ -74,6 +74,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <head>
+        <link rel="preconnect" href="https://res.cloudinary.com" crossOrigin="anonymous" />
         <link rel="icon" href="/favicon.ico" />
       </head>
       <body className={`${inter.variable} ${poppins.variable} ${spaceGrotesk.variable} font-inter antialiased bg-navy-950 text-slate-100 overflow-x-hidden`}>
@@ -109,9 +110,9 @@ export default function RootLayout({
         <Script
           async
           src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`}
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         />
-        <Script id="google-analytics" strategy="afterInteractive">
+        <Script id="google-analytics" strategy="lazyOnload">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
