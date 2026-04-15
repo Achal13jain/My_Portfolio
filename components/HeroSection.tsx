@@ -3,7 +3,7 @@
 import { motion, useMotionValue, useSpring } from 'framer-motion'
 import { ArrowDown, Download, ExternalLink, Github, Linkedin } from 'lucide-react'
 import { SiMedium, SiHashnode, SiX } from 'react-icons/si'
-import { techIcons } from '@/data/portfolio-data'
+import { techIcons, RESUME_URL } from '@/data/portfolio-data'
 import TypewriterText from './TypewriterText'
 import { useEffect, useState } from 'react'
 
@@ -17,9 +17,10 @@ const HeroSection = () => {
   useEffect(() => {
     setIsClient(true)
 
+    const ORB_OFFSET = 192 // Half of w-96 (384px) to center the gradient orb on the cursor
     const handleMouseMove = (e: MouseEvent) => {
-      mouseX.set(e.clientX - 192)
-      mouseY.set(e.clientY - 192)
+      mouseX.set(e.clientX - ORB_OFFSET)
+      mouseY.set(e.clientY - ORB_OFFSET)
     }
 
     window.addEventListener('mousemove', handleMouseMove)
@@ -147,7 +148,7 @@ const HeroSection = () => {
               className="flex flex-col sm:flex-row gap-4 mb-8"
             >
               <motion.a
-                href="https://drive.google.com/file/d/1gUvVi0MWZhyl3koPBNx1nBtP7qVqANFI/view?usp=sharing"
+                href={RESUME_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.05 }}

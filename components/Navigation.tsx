@@ -3,7 +3,8 @@
 
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X, Download, Github, Linkedin, ChevronDown, Layout, Table } from 'lucide-react'
+import { Menu, X, Download, ChevronDown, Layout, Table } from 'lucide-react'
+import { RESUME_URL } from '../data/portfolio-data'
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -139,32 +140,8 @@ const Navigation = () => {
 
             {/* Social Links */}
             <div className="flex items-center space-x-4 ml-8">
-              {/* 
               <motion.a
-                href="https://github.com/Achal13jain"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="GitHub Profile"
-                whileHover={{ scale: 1.1, rotate: 5 }}
-                whileTap={{ scale: 0.9 }}
-                className="text-slate-400 hover:text-purple-400 transition-colors"
-              >
-                <Github size={20} />
-              </motion.a>
-              <motion.a
-                href="https://linkedin.com/in/achal-jain13"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="LinkedIn Profile"
-                whileHover={{ scale: 1.1, rotate: -5 }}
-                whileTap={{ scale: 0.9 }}
-                className="text-slate-400 hover:text-teal-400 transition-colors"
-              >
-                <Linkedin size={20} />
-              </motion.a>
-              */}
-              <motion.a
-                href="https://drive.google.com/file/d/1gUvVi0MWZhyl3koPBNx1nBtP7qVqANFI/view?usp=sharing"
+                href={RESUME_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.05 }}
@@ -233,30 +210,8 @@ const Navigation = () => {
 
               {/* Mobile Social Links */}
               <div className="flex items-center space-x-6 pt-4 border-t border-slate-700">
-                {/*
                 <motion.a
-                  href="https://github.com/Achal13jain"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="GitHub Profile"
-                  whileHover={{ scale: 1.1 }}
-                  className="text-slate-400 hover:text-purple-400 transition-colors"
-                >
-                  <Github size={24} />
-                </motion.a>
-                <motion.a
-                  href="https://linkedin.com/in/achal-jain13"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="LinkedIn Profile"
-                  whileHover={{ scale: 1.1 }}
-                  className="text-slate-400 hover:text-teal-400 transition-colors"
-                >
-                  <Linkedin size={24} />
-                </motion.a>
-                */}
-                <motion.a
-                  href="https://drive.google.com/file/d/1gUvVi0MWZhyl3koPBNx1nBtP7qVqANFI/view?usp=sharing"
+                  href={RESUME_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.05 }}

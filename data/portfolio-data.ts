@@ -2,6 +2,8 @@ import { Brain, ShoppingCart, Activity, Calculator, Code2, Database, GitBranch, 
 import { SiPython, SiJavascript, SiReact, SiNodedotjs, SiPostgresql, SiDocker, SiGit, SiPytorch, SiTensorflow, SiMedium, SiHashnode, SiX } from 'react-icons/si'
 import { FaJava } from 'react-icons/fa'
 
+export const RESUME_URL = 'https://drive.google.com/file/d/1gUvVi0MWZhyl3koPBNx1nBtP7qVqANFI/view?usp=sharing'
+
 export interface Project {
   title: string
   description: string
@@ -203,7 +205,7 @@ export const projects: Project[] = [
     title: 'E-commerce Backend',
     description: 'Scalable microservices architecture for e-commerce platform with user management, shopping cart, checkout, and order history functionalities with JWT-based secure endpoints.',
     icon: ShoppingCart,
-    image: 'https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?q=80&w=1000&auto=format&fit=crop',
+    image: '/images/ecommerce_backend.png',
     color: 'from-teal-500 to-teal-700',
     tech: ['Python', 'PostgreSQL', 'FastAPI', 'JWT'],
     gradient: 'bg-gradient-to-br from-teal-900/20 to-teal-700/20',
