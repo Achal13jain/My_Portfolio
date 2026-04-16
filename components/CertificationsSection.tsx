@@ -58,6 +58,7 @@ const CertificationsSection = () => {
                                         {/* Logo Container - White background to ensure visibility for all logos */}
                                         <div className="w-16 h-16 rounded-xl bg-white flex items-center justify-center p-1 shadow-sm overflow-hidden">
                                             {/* Remote images require configuration in next.config.js, using standard img tag for external URLs to avoid config issues for now, or assume next/image is fine if configured. Using img is safer for this quick iteration unless the user has remote patterns set up. Let's use img for external simpleicons. */}
+                                            {/* eslint-disable-next-line @next/next/no-img-element */}
                                             <img
                                                 src={cert.logo}
                                                 alt={`${cert.issuer} logo`}

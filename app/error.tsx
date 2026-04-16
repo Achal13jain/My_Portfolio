@@ -32,7 +32,7 @@ export default function Error({
         </h2>
         
         <p className="text-slate-400 mb-8 text-sm">
-          A critical rendering error occurred. Don't worry, it's been logged. You can try recovering the application below.
+          A critical rendering error occurred. Don&apos;t worry, it&apos;s been logged. You can try recovering the application below.
         </p>
 
         <button
