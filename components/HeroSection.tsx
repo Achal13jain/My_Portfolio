@@ -16,16 +16,13 @@ const HeroSection = () => {
 
   useEffect(() => {
     setIsClient(true)
+  }, [])
 
-    const ORB_OFFSET = 192 // Half of w-96 (384px) to center the gradient orb on the cursor
-    const handleMouseMove = (e: MouseEvent) => {
-      mouseX.set(e.clientX - ORB_OFFSET)
-      mouseY.set(e.clientY - ORB_OFFSET)
-    }
-
-    window.addEventListener('mousemove', handleMouseMove)
-    return () => window.removeEventListener('mousemove', handleMouseMove)
-  }, [mouseX, mouseY])
+  const ORB_OFFSET = 192 // Half of w-96 (384px) to center the gradient orb on the cursor
+  const handleMouseMove = (e: React.MouseEvent<HTMLElement>) => {
+    mouseX.set(e.clientX - ORB_OFFSET)
+    mouseY.set(e.clientY - ORB_OFFSET)
+  }
 
   const scrollToSkills = () => {
     const element = document.querySelector('#skills')
@@ -44,7 +41,7 @@ const HeroSection = () => {
   ]
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden" onMouseMove={handleMouseMove}>
       {/* Animated Background Particles - Only render on client */}
       {isClient && (
         <div className="absolute inset-0 overflow-hidden">

@@ -4,21 +4,12 @@ import { motion, useScroll, useSpring } from 'framer-motion'
 import { useEffect, useState } from 'react'
 
 const ScrollProgress = () => {
-  const [isMounted, setIsMounted] = useState(false)
-  
-  // Set mounted state to avoid hydration mismatch
-  useEffect(() => {
-    setIsMounted(true)
-  }, [])
-
   const { scrollYProgress } = useScroll()
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
     damping: 30,
     restDelta: 0.001
   })
-
-  if (!isMounted) return null
 
   return (
     <motion.div

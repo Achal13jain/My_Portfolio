@@ -92,6 +92,21 @@ export default function RootLayout({
               name: 'Achal Jain',
               url: SITE_URL,
               jobTitle: 'Software Engineer',
+              image: `${SITE_URL}/og-image.png`,
+              worksFor: {
+                '@type': 'Organization',
+                name: 'NucleusTeq',
+              },
+              hasCredential: [
+                {
+                  '@type': 'EducationalOccupationalCredential',
+                  name: 'AWS Certified Cloud Practitioner',
+                },
+                {
+                  '@type': 'EducationalOccupationalCredential',
+                  name: 'Python (Basic) Certificate',
+                }
+              ],
               alumniOf: {
                 '@type': 'CollegeOrUniversity',
                 name: 'Medicaps University',
@@ -132,9 +147,9 @@ export default function RootLayout({
             {/* Background Gradient Mesh */}
             <div className="fixed inset-0 -z-10">
               <div className="absolute inset-0 bg-gradient-to-br from-navy-950 via-navy-900 to-navy-950"></div>
-              <div className="absolute top-20 left-20 w-72 h-72 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-float"></div>
-              <div className="absolute top-60 right-20 w-72 h-72 bg-teal-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-float" style={{ animationDelay: '2s' }}></div>
-              <div className="absolute bottom-20 left-60 w-72 h-72 bg-purple-600 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-float" style={{ animationDelay: '4s' }}></div>
+              <div className="absolute top-20 left-20 w-72 h-72 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-float" style={{ willChange: 'transform' }}></div>
+              <div className="absolute top-60 right-20 w-72 h-72 bg-teal-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-float" style={{ animationDelay: '2s', willChange: 'transform' }}></div>
+              <div className="absolute bottom-20 left-60 w-72 h-72 bg-purple-600 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-float" style={{ animationDelay: '4s', willChange: 'transform' }}></div>
             </div>
 
             {children}
