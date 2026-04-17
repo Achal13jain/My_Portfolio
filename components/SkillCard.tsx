@@ -49,19 +49,19 @@ const SkillCard = ({ category, variants }: SkillCardProps) => {
       />
 
       {/* Card */}
-      <div className="glass rounded-2xl p-6 h-full border border-slate-700/50 hover:border-purple-500/30 transition-all duration-300 relative overflow-hidden">
+      <div className="glass rounded-2xl px-5 py-5 h-full border border-slate-700/50 hover:border-purple-500/30 transition-all duration-300 relative overflow-hidden">
         {/* Gradient Background */}
         <div className={`absolute inset-0 bg-gradient-to-br ${category.color} opacity-5 group-hover:opacity-10 transition-opacity duration-300`}></div>
 
         {/* Content */}
         <div className="relative z-10">
           {/* Icon */}
-          <div className={`inline-flex items-center justify-center w-16 h-16 rounded-xl bg-gradient-to-br ${category.color} text-white mb-4 group-hover:scale-110 transition-transform duration-300`}>
-            {<category.icon size={32} />}
+          <div className={`inline-flex items-center justify-center w-14 h-14 rounded-xl bg-gradient-to-br ${category.color} text-white mb-3 group-hover:scale-110 transition-transform duration-300`}>
+            {<category.icon size={28} />}
           </div>
 
           {/* Title */}
-          <h3 className="text-xl font-semibold text-white mb-4 group-hover:text-purple-300 transition-colors">
+          <h3 className="text-xl font-semibold text-white mb-3 group-hover:text-purple-300 transition-colors">
             {category.title}
           </h3>
 
