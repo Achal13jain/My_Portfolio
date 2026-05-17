@@ -3,7 +3,7 @@
 
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X, Download, ChevronDown, Layout, Table } from 'lucide-react'
+import { Menu, X, Download, ChevronDown, Layout, Table, Book } from 'lucide-react'
 import { RESUME_URL } from '../data/portfolio-data'
 
 const Navigation = () => {
@@ -134,6 +134,16 @@ const Navigation = () => {
                           <div className="text-xs text-slate-400 mt-1 leading-snug">Instantly convert and export JSON data directly into Excel/Sheets</div>
                        </div>
                     </a>
+                   
+                      <a href="https://achal13jain.github.io/cs-paper-roadmaps/" target="_blank" rel="noopener noreferrer" className="flex items-start p-3 hover:bg-slate-800/80 rounded-xl transition-colors group/item mt-1">
+                        <div className="mt-0.5 p-2 bg-blue-500/10 rounded-lg text-blue-400 group-hover/item:text-blue-300 group-hover/item:bg-blue-500/20 transition-colors">
+                          <Book size={18} />
+                        </div>
+                        <div className="ml-3">
+                          <div className="text-sm font-semibold text-white group-hover/item:text-blue-300 transition-colors">CS Paper Roadmaps</div>
+                          <div className="text-xs text-slate-400 mt-1 leading-snug">Curated computer science paper roadmaps and study guides</div>
+                        </div>
+                      </a>
                  </div>
               </div>
             </div>
@@ -204,6 +214,10 @@ const Navigation = () => {
                   <a href="https://jsontosheet.vercel.app/" target="_blank" rel="noopener noreferrer" className="flex items-center p-2 rounded-lg hover:bg-slate-700/50 transition-colors">
                      <Table size={16} className="text-teal-400 mr-3" />
                      <span className="text-sm text-slate-300 font-medium">JSON to Sheet</span>
+                  </a>
+                  <a href="https://achal13jain.github.io/cs-paper-roadmaps/" target="_blank" rel="noopener noreferrer" className="flex items-center p-2 rounded-lg hover:bg-slate-700/50 transition-colors">
+                    <Book size={16} className="text-blue-400 mr-3" />
+                    <span className="text-sm text-slate-300 font-medium">CS Paper Roadmaps</span>
                   </a>
                 </div>
               </div>
