@@ -115,7 +115,7 @@ const Navigation = () => {
               
               <div className="absolute top-[100%] right-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 w-[320px]">
                  <div className="bg-navy-900 border border-slate-700/50 rounded-2xl shadow-2xl overflow-hidden p-2">
-                    <a href="https://achal13jain.github.io/ui-design-patterns/" target="_blank" rel="noopener noreferrer" className="flex items-start p-3 hover:bg-slate-800/80 rounded-xl transition-colors group/item">
+                    <a href="https://achal13jain.github.io/design-patterns/" target="_blank" rel="noopener noreferrer" className="flex items-start p-3 hover:bg-slate-800/80 rounded-xl transition-colors group/item">
                        <div className="mt-0.5 p-2 bg-purple-500/10 rounded-lg text-purple-400 group-hover/item:text-purple-300 group-hover/item:bg-purple-500/20 transition-colors">
                           <Layout size={18} />
                        </div>
@@ -207,7 +207,7 @@ const Navigation = () => {
               <div className="pt-2 pb-2">
                 <div className="text-slate-400 text-xs font-bold uppercase tracking-wider mb-3 px-2">Live Tools</div>
                 <div className="space-y-2 bg-slate-800/30 rounded-xl p-2">
-                  <a href="https://achal13jain.github.io/ui-design-patterns/" target="_blank" rel="noopener noreferrer" className="flex items-center p-2 rounded-lg hover:bg-slate-700/50 transition-colors">
+                  <a href="https://achal13jain.github.io/design-patterns/" target="_blank" rel="noopener noreferrer" className="flex items-center p-2 rounded-lg hover:bg-slate-700/50 transition-colors">
                      <Layout size={16} className="text-purple-400 mr-3" />
                      <span className="text-sm text-slate-300 font-medium">UI Design Patterns</span>
                   </a>
