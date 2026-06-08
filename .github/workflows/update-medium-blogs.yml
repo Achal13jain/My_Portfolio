@@ -1,0 +1,48 @@
+name: Update Medium Blogs
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '17 3 * * *'
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Fetch Medium Blogs
+        run: npm run blogs:fetch
+
+      - name: Run Linter
+        run: npm run lint
+
+      - name: Build Application
+        run: npm run build
+
+      - name: Commit Blog Updates
+        run: |
+          if git diff --quiet -- data/generated-medium-blogs.ts; then
+            echo "No Medium blog updates to commit."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/generated-medium-blogs.ts
+          git commit -m "chore: update Medium blog feed"
+          git push

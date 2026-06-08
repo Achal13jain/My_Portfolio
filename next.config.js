@@ -9,6 +9,14 @@ const nextConfig = {
       {
         protocol: 'https',
         hostname: 'images.unsplash.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'miro.medium.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'cdn-images-1.medium.com',
       }
     ],
     unoptimized: true, // Required for static export

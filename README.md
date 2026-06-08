@@ -11,7 +11,7 @@ A modern, responsive developer portfolio built with **Next.js 14**, **Tailwind C
 
 - **Portfolio Sections** - Hero, Skills, Certifications, Projects, Blogs, Experience, and Contact.
 - **Interactive Animations** - Mouse-tracking gradient effects, floating particles, and staggered section reveals.
-- **Blog Integration** - Dynamic cards for Medium and Hashnode posts with Cloudinary-hosted images.
+- **Blog Integration** - Automated Medium posts from RSS plus curated Hashnode entries with image-backed cards.
 - **Live Tools Dropdown** - Quick links to side projects such as UI Design Patterns and JSON to Sheet.
 - **Toast Notifications** - Custom toast system for user feedback instead of native alerts.
 - **Accessibility** - Skip-to-content support, focus-visible styles, reduced-motion handling, and ARIA labels.
@@ -58,7 +58,10 @@ A modern, responsive developer portfolio built with **Next.js 14**, **Tailwind C
 |   |-- Toast.tsx                # Toast notification provider and context
 |   `-- TypewriterText.tsx       # Animated typewriter text
 |-- data/
+|   |-- generated-medium-blogs.ts # Generated Medium RSS blog data
 |   `-- portfolio-data.ts        # Portfolio content: projects, skills, links, contact data
+|-- scripts/
+|   `-- fetch-medium-blogs.mjs   # Fetches Medium RSS posts and updates generated blog data
 |-- public/
 |   |-- og-image.png             # Open Graph and Twitter Card image
 |   |-- robots.txt               # Search engine crawling rules
@@ -102,7 +105,8 @@ All portfolio content is centralized in [data/portfolio-data.ts](data/portfolio-
 
 - `projects` - Project cards with title, description, tech stack, and links.
 - `skillCategories` - Skill grid content with icon and category data.
-- `blogs` - Blog posts from Medium and Hashnode.
+- `generated-medium-blogs.ts` - Generated Medium posts from the RSS fetch script.
+- `hashnodeBlogs` - Curated Hashnode posts maintained manually.
 - `certifications` - Certification badges and credential links.
 - `experience` and `education` - Timeline entries.
 - `socialLinks` - GitHub, LinkedIn, X, Medium, and Hashnode links.
@@ -126,6 +130,11 @@ colors: {
 | `npm run build` | Create a production static export in `out/` |
 | `npm run start` | Start the production server |
 | `npm run lint` | Run ESLint |
+| `npm run blogs:fetch` | Fetch the latest Medium posts and update generated blog data |
+
+## Blog Automation
+
+Medium posts are generated from `https://medium.com/feed/@jainachal38` by [scripts/fetch-medium-blogs.mjs](scripts/fetch-medium-blogs.mjs). The workflow in [.github/workflows/update-medium-blogs.yml](.github/workflows/update-medium-blogs.yml) runs daily and can also be triggered manually from GitHub Actions. It commits changes only when [data/generated-medium-blogs.ts](data/generated-medium-blogs.ts) changes.
 
 ## Deployment
 

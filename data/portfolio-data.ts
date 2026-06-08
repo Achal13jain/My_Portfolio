@@ -1,6 +1,7 @@
 import { Brain, ShoppingCart, Activity, Calculator, Code2, Database, GitBranch, Server, Smartphone, Monitor, Globe, Mail, MapPin, Github, Linkedin } from 'lucide-react'
 import { SiPython, SiJavascript, SiReact, SiNodedotjs, SiPostgresql, SiDocker, SiGit, SiPytorch, SiTensorflow, SiMedium, SiHashnode, SiX } from 'react-icons/si'
 import { FaJava } from 'react-icons/fa'
+import { mediumBlogs } from './generated-medium-blogs'
 
 export const RESUME_URL = 'https://drive.google.com/file/d/1gUvVi0MWZhyl3koPBNx1nBtP7qVqANFI/view?usp=sharing'
 
@@ -88,19 +89,7 @@ export interface BlogPost {
   tags: string[]
 }
 
-export const blogs: BlogPost[] = [
-  {
-    title: 'Context Engineering Is a Skill. Most Developers Are Skipping It.',
-    description: "Your AI coding agent isn't underperforming because the model is weak — it's underperforming because you haven't built the environment it needs. Skills, CLAUDE.md, hooks, and the patterns that close the gap.",
-    url: 'https://medium.com/towards-artificial-intelligence/context-engineering-is-a-skill-most-developers-are-skipping-it-9938678292b8',
-    platform: 'medium',
-    image: 'https://res.cloudinary.com/du0ea6cth/image/upload/f_auto,q_auto/v1774462517/achal-portfolio/Context%20eng%20blog.png',
-    category: 'DEVELOPER TOOLS',
-    date: 'March 2026',
-    readTime: '6 min read',
-    featured: true,
-    tags: ['Claude Code', 'Cursor', 'AI Tooling', 'Context Engineering']
-  },
+export const hashnodeBlogs: BlogPost[] = [
   {
     title: "Why Your Laptop Isn't Enough: What 'Cloud' Actually Means for ML",
     description: 'Understanding the limitations of local hardware and how cloud infrastructure empowers scalable Machine Learning models.',
@@ -138,6 +127,8 @@ export const blogs: BlogPost[] = [
     tags: ['AWS', 'Deployment', 'Stock Prediction']
   }
 ]
+
+export const blogs: BlogPost[] = [...mediumBlogs, ...hashnodeBlogs]
 
 export const certifications: Certification[] = [
   {
