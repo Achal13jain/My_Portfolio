@@ -1,13 +1,14 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { useState } from 'react'
+import { ExternalLink } from 'lucide-react'
+import { SiMedium } from 'react-icons/si'
 
 import { blogs } from '@/data/portfolio-data'
 import { FeaturedBlogCard, RegularBlogCard } from './BlogCard'
 
 const BlogsSection = () => {
-  const [showAll, setShowAll] = useState(false)
+  const mediumProfileUrl = 'https://medium.com/@jainachal38'
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -33,8 +34,9 @@ const BlogsSection = () => {
     },
   }
 
-  const featuredPost = blogs.find(b => b.featured) || blogs[0]
-  const otherPosts = blogs.filter(b => b !== featuredPost)
+  const latestPosts = blogs.slice(0, 4)
+  const featuredPost = latestPosts.find(b => b.featured) || latestPosts[0]
+  const otherPosts = latestPosts.filter(b => b !== featuredPost)
 
   return (
     <section id="blogs" className="relative">
@@ -79,7 +81,7 @@ const BlogsSection = () => {
           )}
 
           {/* Regular Posts Grid */}
-          <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 ${!showAll ? '[&>*:nth-child(n+3)]:hidden md:[&>*:nth-child(n+3)]:block' : ''}`}>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {otherPosts.map((post) => (
               <RegularBlogCard
                 key={post.title}
@@ -89,20 +91,21 @@ const BlogsSection = () => {
             ))}
           </div>
 
-          {otherPosts.length > 2 && (
-            <motion.div 
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              className="mt-12 flex md:hidden justify-center"
+          <motion.div
+            variants={itemVariants}
+            className="mt-12 flex justify-center"
+          >
+            <a
+              href={mediumProfileUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 rounded-full border border-purple-500/30 bg-navy-800 px-6 py-3 text-sm font-semibold text-purple-300 shadow-lg shadow-purple-500/10 transition-all duration-300 hover:border-purple-400/50 hover:bg-navy-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-purple-500/50 sm:px-8"
             >
-              <button
-                onClick={() => setShowAll(!showAll)}
-                className="bg-navy-800 hover:bg-navy-700 text-purple-400 hover:text-purple-300 border border-purple-500/30 px-8 py-3 rounded-full text-sm font-medium transition-all duration-300 shadow-lg hover:shadow-purple-500/20 focus:outline-none focus:ring-2 focus:ring-purple-500/50"
-              >
-                {showAll ? 'See Less' : 'See More'}
-              </button>
-            </motion.div>
-          )}
+              <SiMedium size={18} />
+              <span>Read More on Medium</span>
+              <ExternalLink size={16} />
+            </a>
+          </motion.div>
         </motion.div>
       </div>
       </div>
