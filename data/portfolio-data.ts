@@ -1,4 +1,4 @@
-import { Brain, ShoppingCart, Activity, Calculator, Code2, Database, GitBranch, Server, Smartphone, Monitor, Globe, Mail, Phone, MapPin, Github, Linkedin } from 'lucide-react'
+import { Brain, ShoppingCart, Activity, Calculator, Code2, Database, GitBranch, Server, Smartphone, Monitor, Globe, Mail, MapPin, Github, Linkedin } from 'lucide-react'
 import { SiPython, SiJavascript, SiReact, SiNodedotjs, SiPostgresql, SiDocker, SiGit, SiPytorch, SiTensorflow, SiMedium, SiHashnode, SiX } from 'react-icons/si'
 import { FaJava } from 'react-icons/fa'
 
@@ -318,13 +318,6 @@ export const contactInfo: ContactInfo[] = [
     value: 'jainachal38@gmail.com',
     href: 'mailto:jainachal38@gmail.com',
     color: 'from-purple-500 to-purple-700',
-  },
-  {
-    icon: Phone,
-    label: 'Phone',
-    value: '+91 94069 18980',
-    href: 'tel:+919406918980',
-    color: 'from-teal-500 to-teal-700',
   },
   {
     icon: MapPin,
