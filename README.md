@@ -2,10 +2,11 @@
 
 A modern, responsive developer portfolio built with **Next.js 14**, **Tailwind CSS**, and **Framer Motion**. The site presents projects, technical skills, certifications, writing, experience, and contact options through a polished dark interface with smooth animations and optimized performance.
 
-[![Live Demo](https://img.shields.io/badge/Live-Demo-a855f7?style=for-the-badge&logo=netlify&logoColor=white)](https://achal-jain-portfolio.netlify.app)
-[![Next.js](https://img.shields.io/badge/Next.js-14-000000?style=for-the-badge&logo=next.js&logoColor=white)](https://nextjs.org)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.2-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://typescriptlang.org)
-[![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.3-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)](https://tailwindcss.com)
+[![Live Site](https://img.shields.io/badge/Portfolio-Live%20Site-8b5cf6?style=flat&logo=netlify&logoColor=white&labelColor=111827)](https://achal-jain-portfolio.netlify.app)
+[![Next.js](https://img.shields.io/badge/Next.js-14-000000?style=flat&logo=next.js&logoColor=white&labelColor=111827)](https://nextjs.org)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.2-3178c6?style=flat&logo=typescript&logoColor=white&labelColor=111827)](https://typescriptlang.org)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-3.3-06b6d4?style=flat&logo=tailwindcss&logoColor=white&labelColor=111827)](https://tailwindcss.com)
+[![Framer Motion](https://img.shields.io/badge/Framer%20Motion-10-ff4d8d?style=flat&logo=framer&logoColor=white&labelColor=111827)](https://www.framer.com/motion/)
 
 ## Features
 
